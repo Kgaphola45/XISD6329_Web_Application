@@ -133,12 +133,104 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
+
+
+                               
+
+
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" />
+                                    <input type="ElderID" class="form-control" placeholder="Enter Elder ID number *" name="ElderID" onkeyup='check();' required/>
                                 </div>
+                                 
+
+
+                                <div class="form-group">
+                                    <input type="Allergies" class="form-control" placeholder="what Allergies does elder have *" name="Allergies" onkeyup='check();' required/>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input type="mobility" class="form-control" placeholder=" mobility used 'eg walker, wheelchair' *" name="Allergies" onkeyup='check();' required/>
+                                </div>
+
+
+                               
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
                                 </div>
+                                 
+
+
+
+
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline"> 
+                                            <input type="radio" name="gender" value="Male" checked>
+                                            <span> Male </span> 
+                                        </label>
+                                        <label class="radio inline"> 
+                                            <input type="radio" name="gender" value="Female">
+                                            <span>Female </span> 
+                                        </label>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="Medication" class="form-control" placeholder="List current Medications*" name="Medication" onkeyup='check();' required/>
+                                </div>
+
+                               
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
+                                    <span id='message'></span>
+                                </div>
+                            </div>
+
+                            <style> 
+        h3{text-align: center;} 
+    </style>
+                        </div>
+                       
+                        <div>
+                           
+                                <h3>Who's Registering for Elder </h3>
+                                
+                                <form method="post" action="func2.php">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="IDNumber" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup='check();' required/>
+                                </div>
+                                 
+
+                                
+                                <div class="form-group">
+                                    <input type="relation" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
+                                </div>
+
+                        
+                                 
+
+
+
+
                                 <div class="form-group">
                                     <div class="maxl">
                                         <label class="radio inline"> 
@@ -157,18 +249,27 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
+
+
+
                                 <div class="form-group">
-                                    <input type="tel" minlength="10" maxlength="10" name="contact" class="form-control" placeholder="Your Phone *" />
+                                    <input type="tel" minlength="10" maxlength="10" name="contact" class="form-control" placeholder="Your Phone number *" required/>
                                 </div>
+
+
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
-                                    <span id='message'></span>
+                                    <input type="emerPhone" class="form-control" placeholder="Emergency Number *" name="emerPhone" />
                                 </div>
+
+
                                 <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
                             </div>
                         </div>
                     </form>
-                </div>
+                </div></div>
+
+
+
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h3 class="register-heading">Login as Caregiver</h3>
                     <form method="post" action="func1.php">

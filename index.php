@@ -139,7 +139,7 @@
 
 
                                 <div class="form-group">
-                                    <input type="ElderID" class="form-control" placeholder="Enter Elder ID number *" name="ElderID" onkeyup='check();' required/>
+                                    <input type="ElderID" minlength="13" maxlength="14" class="form-control" placeholder="Enter Elder ID number *" name="ElderID" onkeyup='check();' required/>
                                 </div>
                                  
 
@@ -156,8 +156,10 @@
 
                                
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
+                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
+                                    <span id='message'></span>
                                 </div>
+                              
                                  
 
 
@@ -189,14 +191,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="Medication" class="form-control" placeholder="List current Medications*" name="Medication" onkeyup='check();' required/>
+                                    <input type="Medication"  class="form-control" placeholder="List current Medications*" name="Medication" onkeyup='check();' required/>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
                                 </div>
 
                                
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
-                                    <span id='message'></span>
-                                </div>
                             </div>
 
                             <style> 
@@ -258,7 +260,7 @@
 
 
                                 <div class="form-group">
-                                    <input type="emerPhone" class="form-control" placeholder="Emergency Number *" name="emerPhone" />
+                                    <input type="emerPhone" minlength="10" maxlength="10" class="form-control" placeholder="Emergency Number *" name="emerPhone" />
                                 </div>
 
 

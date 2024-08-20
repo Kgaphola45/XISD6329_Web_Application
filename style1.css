@@ -99,3 +99,9 @@ body {
     color: #495057;
 }
 
+.services-section, .contact-section {
+    margin: 0 auto; /* Center horizontally */
+    max-width: 800px; /* Adjust the max-width according to your preference */
+    text-align: center; /* Center the text */
+    color: white;
+}

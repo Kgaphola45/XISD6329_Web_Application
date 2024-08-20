@@ -15,7 +15,7 @@ if(isset($_POST['doctor_search_submit']))
   $query = "select * from doctb where email= '$contact'";
   $result = mysqli_query($con,$query);
   $row=mysqli_fetch_array($result);
-  if($row['username']=="" & $row['password']=="" & $row['email']=="" & $row['docFees']==""){
+  if($row['username']=="" & $row['password']=="" & $row['email']=="" & $row['donationFee']==""){
     echo "<script> alert('No entries found!'); 
           window.location.href = 'admin-panel1.php#list-doc';</script>";
   }
@@ -38,12 +38,12 @@ if(isset($_POST['doctor_search_submit']))
 		    $username = $row['username'];
         $password = $row['password'];
         $email = $row['email'];
-        $docFees = $row['docFees'];
+        $donationFee = $row['donationFee'];
         echo "<tr>
           <td>$username</td>
           <td>$password</td>
           <td>$email</td>
-          <td>$docFees</td>
+          <td>$donationFee</td>
         </tr>";
 	// }
 	echo "</tbody></table><center><a href='admin-panel1.php' class='btn btn-light'>Back to dashboard</a></div></center></div></div></div>";

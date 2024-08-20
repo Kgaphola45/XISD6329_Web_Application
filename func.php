@@ -47,7 +47,7 @@ if(isset($_POST['update_data']))
 // 	while($row=mysqli_fetch_array($result))
 // 	{
 // 		$name=$row['name'];
-//     $cost=$row['docFees'];
+//     $cost=$row['donationFee'];
 // 		echo '<option value="'.$name.'" data-price="' .$cost. '" >'.$name.'</option>';
 // 	}
 // }
@@ -57,8 +57,8 @@ if(isset($_POST['doc_sub']))
 	$doctor=$_POST['doctor'];
   $dpassword=$_POST['dpassword'];
   $demail=$_POST['demail'];
-  $docFees=$_POST['docFees'];
-	$query="insert into doctb(username,password,email,docFees)values('$doctor','$dpassword','$demail','$docFees')";
+  $donationFee=$_POST['donationFee'];
+	$query="insert into doctb(username,password,email,donationFee)values('$doctor','$dpassword','$demail','$donationFee')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:adddoc.php");

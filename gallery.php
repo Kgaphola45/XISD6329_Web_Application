@@ -54,13 +54,16 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">About</a>
+                    <a class="nav-link" href="services.html">ABOUT US</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="gallery.php">Gallery <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="gallery.php">GALLERY <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="contact.html">CONTACT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-panel1.php">Admin</a>
                 </li>
             </ul>
         </div>
@@ -73,30 +76,30 @@
     <div class="row">
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/5a74741ccd2447ef881be5f0493d124d.jpg" alt="Gallery Image 1">
-            <div class="gallery-caption">Image 1</div>
+            <div class="gallery-caption">Our cozy chill spot is the perfect place for residents to relax and unwind. Comfortable seating and a warm atmosphere make this the ideal place for a quiet afternoon.</div>
         </div>
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/Makapanstad-CSI-1.jpg" alt="Gallery Image 2">
-            <div class="gallery-caption">Image 2</div>
+            <div class="gallery-caption">At Golden Years Old Age Home, we strive to keep our residents smiling every day. Our dedicated staff and engaging activities ensure that there's always a reason to smile.</div>
         </div>
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/img-2625.jpg" alt="Gallery Image 3">
-            <div class="gallery-caption">Image 3</div>
+            <div class="gallery-caption">Residents enjoy a variety of engaging activities to stay active and socialize. Weekly arts and crafts sessions to foster creativity and fun.</div>
         </div>
     </div>
     
     <div class="row">
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/home-about-us.jpg" alt="Gallery Image 4">
-            <div class="gallery-caption">Image 4</div>
+            <div class="gallery-caption">Round-the-clock medical care ensures our residents' health and well-being. Our skilled medical staff are always available to provide the best care</div>
         </div>
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/frail-care-homes-for-sassa-pensioners.jpeg" alt="Gallery Image 5">
-            <div class="gallery-caption">Image 5</div>
+            <div class="gallery-caption">Our cozy and fully furnished living spaces offer a home-like environment for our residents.</div>
         </div>
         <div class="col-md-4 gallery-item">
             <img src="images/Gallery/72744464_2581755218514595_308585926974504960_n.jpg" alt="Gallery Image 6">
-            <div class="gallery-caption">Image 6</div>
+            <div class="gallery-caption">Ensuring cleanliness and comfort, our staff takes special care in washing residents' feet. Foot care is an essential part of our health and wellness services.</div>
         </div>
     </div>
 

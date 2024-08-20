@@ -33,7 +33,7 @@ if(isset($_POST['update_data']))
 //  while($row=mysqli_fetch_array($result))
 //  {
 //   $username=$row['username'];
-//   $price=$row['docFees'];
+//   $price=$row['donationFee'];
 //   echo '<option value="' .$username. '" data-value="'.$price.'">'.$username.'</option>';
 //  }
 // }
@@ -58,7 +58,7 @@ function display_docs()
  while( $row = mysqli_fetch_array($result) )
  {
   $username = $row['username'];
-  $price = $row['docFees'];
+  $price = $row['donationFee'];
   $spec = $row['spec'];
   echo '<option value="' .$username. '" data-value="'.$price.'" data-spec="'.$spec.'">'.$username.'</option>';
  }

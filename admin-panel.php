@@ -27,7 +27,7 @@ if(isset($_POST['app-submit']))
   $doctor=$_POST['doctor'];
   $email=$_SESSION['email'];
   # $fees=$_POST['fees'];
-  $docFees=$_POST['docFees'];
+  $donationFee=$_POST['donationFee'];
 
   $appdate=$_POST['appdate'];
   $apptime=$_POST['apptime'];
@@ -42,7 +42,7 @@ if(isset($_POST['app-submit']))
       $check_query = mysqli_query($con,"select apptime from appointmenttb where doctor='$doctor' and appdate='$appdate' and apptime='$apptime'");
 
         if(mysqli_num_rows($check_query)==0){
-          $query=mysqli_query($con,"insert into appointmenttb(pid,fname,lname,gender,email,contact,doctor,docFees,appdate,apptime,userStatus,doctorStatus) values($pid,'$fname','$lname','$gender','$email','$contact','$doctor','$docFees','$appdate','$apptime','1','1')");
+          $query=mysqli_query($con,"insert into appointmenttb(pid,fname,lname,gender,email,contact,doctor,donationFee,appdate,apptime,userStatus,doctorStatus) values($pid,'$fname','$lname','$gender','$email','$contact','$doctor','$donationFee','$appdate','$apptime','1','1')");
 
           if($query)
           {
@@ -83,7 +83,7 @@ function generate_bill(){
   $con=mysqli_connect("localhost","root","","myhmsdb");
   $pid = $_SESSION['pid'];
   $output='';
-  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
+  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.donationFee from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
   while($row = mysqli_fetch_array($query)){
     $output .= '
     <label> Elders ID : </label>'.$row["pid"].'<br/><br/>
@@ -95,7 +95,7 @@ function generate_bill(){
     <label> Disease : </label>'.$row["disease"].'<br/><br/>
     <label> Allergies : </label>'.$row["allergy"].'<br/><br/>
     <label> Prescription : </label>'.$row["prescription"].'<br/><br/>
-    <label> Fees Paid : </label>'.$row["docFees"].'<br/>
+    <label> Fees Paid : </label>'.$row["donationFee"].'<br/>
     
     ';
 
@@ -364,7 +364,7 @@ function get_specs(){
                         <script>
               document.getElementById('doctor').onchange = function updateFees(e) {
                 var selection = document.querySelector(`[value=${this.value}]`).getAttribute('data-value');
-                document.getElementById('docFees').value = selection;
+                document.getElementById('donationFee').value = selection;
               };
             </script>
 
@@ -417,8 +417,8 @@ function get_specs(){
                                 Donation
                               </label></div>
                               <div class="col-md-8">
-                              <!-- <div id="docFees">Select a doctor</div> -->
-                              <input class="form-control" type="text" name="docFees" id="docFees" readonly="readonly"/>
+                              <!-- <div id="donationFee">Select a doctor</div> -->
+                              <input class="form-control" type="text" name="donationFee" id="donationFee" readonly="readonly"/>
                   </div><br><br>
 
                   <div class="col-md-4"><label>Appointment Date</label></div>
@@ -469,7 +469,7 @@ function get_specs(){
                     $con=mysqli_connect("localhost","root","","myhmsdb");
                     global $con;
 
-                    $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
+                    $query = "select ID,doctor,donationFee,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
               
@@ -480,7 +480,7 @@ function get_specs(){
                   ?>
                       <tr>
                         <td><?php echo $row['doctor'];?></td>
-                        <td><?php echo $row['docFees'];?></td>
+                        <td><?php echo $row['donationFee'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         

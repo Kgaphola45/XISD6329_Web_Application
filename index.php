@@ -18,9 +18,12 @@
             color: white;
         }
         .services-section, .contact-section {
-            margin: 50px 0;
-            color: white;
+            margin-top: 50px;
+            margin-left: auto; 
+            margin-right: auto; 
+            max-width: 1200px; 
             text-align: center;
+            color: white;
         }
         .services-section img, .welcome-section img {
             max-width: 100%;
@@ -83,15 +86,22 @@
                         <h6>CONTACT</h6>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="gallery.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>GALLERY</h6>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="container welcome-section">
+   
+    
+    <img src="images/logo/logo.png" alt="Welcome to Golden Years Old Age Home" width="300" height="200">
     <h1>Welcome to Golden Years Old Age Home</h1>
     <p>Your comfort and well-being are our top priorities. At Golden Years, we provide a safe and nurturing environment where our residents can enjoy their golden years with dignity and respect.</p>
-    <img src="https://www.example.com/welcome-image.jpg" alt="Welcome to Golden Years Old Age Home">
 </div>
 
 
@@ -99,8 +109,8 @@
 <div class="container register" style="font-family: 'IBM Plex Sans', sans-serif;">
     <div class="row">
         <div class="col-md-3 register-left" style="margin-top: 10%; right: 5%">
-            <img src="images/logo/Simple Minimalist Real Estate Logo.png" alt=""/>
-            <h3>Welcome</h3>
+            <img src="images/logo/logo.png" alt=""/>
+            <h3>Golden Years Old Age Home</h3>
         </div>
         <div class="col-md-9 register-right" style="margin-top: 40px; left: 80px;">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist" style="width: 40%;">
@@ -199,23 +209,25 @@
         </div>
     </div>
 </div>
+
+
 <div class="container services-section">
     <h2>Our Services</h2>
     <div class="row">
         <div class="col-md-4">
-            <h4>24/7 Medical Care</h4>
-            <p>Our professional staff provides round-the-clock medical care to ensure our residents are always in good hands.</p>
-            <img src="https://www.example.com/medical-care.jpg" alt="24/7 Medical Care">
+            <h4>24/7 Cozy Chill Spot</h4>
+            <p>Our cozy chill spot provides residents with a tranquil environment to relax and socialize. Outfitted with comfortable seating and a warm ambiance, this area is perfect for reading, chatting, or simply unwinding. The space encourages a sense of community and offers a peaceful retreat where residents can enjoy quiet moments. Soft lighting, plush cushions, and gentle background music enhance the soothing atmosphere. The chill spot is a testament to our commitment to creating a homely and comfortable living space for all our residents.</p>
+            <img src="images/Home/pngwing.com (2).png" alt="24/7 Medical Care">
         </div>
         <div class="col-md-4">
-            <h4>Comfortable Living</h4>
-            <p>We offer comfortable and fully furnished living spaces that make our residents feel right at home.</p>
-            <img src="https://www.example.com/living-space.jpg" alt="Comfortable Living">
+            <h4> Why Choose Us?</h4>
+            <p>Choosing Golden Years Old Age Home means opting for excellence in elderly care. Our experienced team is dedicated to providing personalized care tailored to each resident’s needs. We prioritize health, happiness, and well-being, ensuring a positive and fulfilling experience. With us, your loved ones will enjoy their golden years with dignity and joy.  Our facility is designed to offer a home-like atmosphere with professional care and comfort. Our dedicated staff ensures that every resident feels valued and well-cared for, making their golden years truly special.</p>
+            <img src="images/Home/pngwing.com (1).png" alt="Comfortable Living">
         </div>
         <div class="col-md-4">
-            <h4>Recreational Activities</h4>
-            <p>Our wide range of activities ensures our residents stay active and engaged, fostering a sense of community.</p>
-            <img src="https://www.example.com/recreational-activities.jpg" alt="Recreational Activities">
+            <h4>Our Services</h4>
+            <p>At Golden Years Old Age Home, we offer a comprehensive range of services to meet the diverse needs of our residents. Our 24/7 medical care ensures that help is always available. We provide comfortable living spaces that feel like home, complete with amenities to enhance quality of life. Additionally, our recreational activities keep residents active, engaged, and socially connected. Our wide range of activities ensures our residents stay active and engaged, fostering a sense of community.</p>
+            <img src="images/Home/pngwing.com.png" alt="Recreational Activities">
         </div>
     </div>
 </div>
@@ -224,7 +236,13 @@
     <h2>Contact Us</h2>
     <p>If you have any questions or would like to schedule a visit, please feel free to contact us.</p>
     <p>Email: contact@goldenyears.com | Phone: (123) 456-7890</p>
+    <button onclick="location.href='contact.html'">Contact Us</button>
+
 </div>
+
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

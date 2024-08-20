@@ -10,8 +10,8 @@ if(isset($_POST['docsub']))
   $dpassword=$_POST['dpassword'];
   $demail=$_POST['demail'];
   $spec=$_POST['special'];
-  $docFees=$_POST['docFees'];
-  $query="insert into doctb(username,password,email,spec,docFees)values('$doctor','$dpassword','$demail','$spec','$docFees')";
+  $donationFee=$_POST['donationFee'];
+  $query="insert into doctb(username,password,email,spec,donationFee)values('$doctor','$dpassword','$demail','$spec','$donationFee')";
   $result=mysqli_query($con,$query);
   if($result)
     {
@@ -281,14 +281,14 @@ if(isset($_POST['docsub1']))
                       $spec = $row['spec'];
                       $email = $row['email'];
                       $password = $row['password'];
-                      $docFees = $row['docFees'];
+                      $donationFee = $row['donationFee'];
                       
                       echo "<tr>
                         <td>$username</td>
                         <td>$spec</td>
                         <td>$email</td>
                         <td>$password</td>
-                        <td>$docFees</td>
+                        <td>$donationFee</td>
                       </tr>";
                     }
 
@@ -467,7 +467,7 @@ if(isset($_POST['docsub1']))
                         <td><?php echo $row['email'];?></td>
                         <td><?php echo $row['contact'];?></td>
                         <td><?php echo $row['doctor'];?></td>
-                        <td><?php echo $row['docFees'];?></td>
+                        <td><?php echo $row['donationFee'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         <td>
@@ -518,7 +518,7 @@ if(isset($_POST['docsub1']))
                    
                   
                   <div class="col-md-4"><label>Donation:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control"  name="docFees" required></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="donationFee" required></div><br><br>
                 </div>
           <input type="submit" name="docsub" value="Add Caregiver" class="btn btn-primary">
         </form>

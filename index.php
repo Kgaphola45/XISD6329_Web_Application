@@ -62,7 +62,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #007bff;">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#" style="margin-top: 10px; margin-left:-65px; font-family: 'IBM Plex Sans', sans-serif;">
             <h4><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Golden Years Old Age Home</h4>

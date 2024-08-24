@@ -335,15 +335,14 @@
     </div>
 </div>
 
-<div class="container contact-section">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or would like to schedule a visit, please feel free to contact us.</p>
-    <p>Email: contact@goldenyears.com | Phone: (123) 456-7890</p>
-    <button onclick="location.href='contact.html'">Contact Us</button>
-
-</div>
-
-</div>
+ <!-- Site footer -->
+ <footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>About Us</h6>
+        <p class="text-justify">Our old age home provides compassionate care and support for seniors. Our dedicated staff ensures a comfortable living environment with medical attention, recreational activities, and personalized care plans. We aim to enhance the quality of life for our residents through professional and heartfelt service.</p>
+      </div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

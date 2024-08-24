@@ -22,4 +22,33 @@
     margin-top: 5px;
     letter-spacing: 2px;
   }
+  .site-footer a {
+    color: #F5F7FA; /* Link color set to white */
+  }
   
+  .site-footer a:hover {
+    color: #3366cc; /* Color on hover */
+    text-decoration: none;
+  }
+  
+  .footer-links {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .footer-links li {
+    display: block;
+  }
+  
+  .footer-links a {
+    color: #F5F7FA; /* Link color in footer links */
+  }
+  
+  .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+    color: #3366cc; /* Color on hover */
+    text-decoration: none;
+  }
+  
+  .footer-links.inline li {
+    display: inline-block;
+  }

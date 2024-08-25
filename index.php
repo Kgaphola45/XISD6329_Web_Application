@@ -31,7 +31,15 @@
             height: auto;
             border-radius: 10px;
         }
+ 
+        h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+     
     </style>
+
+
 
     <script>
         var check = function() {
@@ -202,74 +210,50 @@
                                
                             </div>
 
-                            <style> 
-        h3{text-align: center;} 
-    </style>
+                            
+
+                        </div>    <div class="container mt-5">
+        <h3>Who's Registering for Elder</h3>
+        <form method="post" action="func2.php">
+            <div class="row register-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup="check();" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="Male" checked>
+                            <label class="form-check-label">Male</label>
                         </div>
-                       
-                        <div>
-                           
-                                <h3>Who's Registering for Elder </h3>
-                                
-                                <form method="post" action="func2.php">
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="IDNumber" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup='check();' required/>
-                                </div>
-                                 
-
-                                
-                                <div class="form-group">
-                                    <input type="relation" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
-                                </div>
-
-                        
-                                 
-
-
-
-
-                                <div class="form-group">
-                                    <div class="maxl">
-                                        <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="Male" checked>
-                                            <span> Male </span> 
-                                        </label>
-                                        <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="Female">
-                                            <span>Female </span> 
-                                        </label>
-                                    </div>
-                                    <a href="index1.php">Already have an account?</a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <input type="tel" minlength="10" maxlength="10" name="contact" class="form-control" placeholder="Your Phone number *" required/>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <input type="emerPhone" minlength="10" maxlength="10" class="form-control" placeholder="Emergency Number *" name="emerPhone" />
-                                </div>
-
-
-                                <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                            </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="Female">
+                            <label class="form-check-label">Female</label>
                         </div>
-                    </form>
-                </div></div>
+                        <br>
+                        <a href="index1.php">Already have an account?</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="contact" placeholder="Your Phone number *" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="emerPhone" placeholder="Emergency Number *"/>
+                    </div>
+                    <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
+                </div>
+            </div>
+        </form>
+    </div></div>
 
 
 
@@ -314,6 +298,14 @@
     </div>
 </div>
 
+<style>
+        .hr {
+            border: 55;
+            height: 2px;
+            background: #333; /* Dark gray color for the line */
+            margin: 20px 0; /* Spacing around the line */
+        }
+    </style>
 
 <div class="container services-section">
     <h2>Our Services</h2>
@@ -321,24 +313,29 @@
         <div class="col-md-4">
             <h4>24/7 Cozy Chill Spot</h4>
             <p>Our cozy chill spot provides residents with a tranquil environment to relax and socialize. Outfitted with comfortable seating and a warm ambiance, this area is perfect for reading, chatting, or simply unwinding. The space encourages a sense of community and offers a peaceful retreat where residents can enjoy quiet moments. Soft lighting, plush cushions, and gentle background music enhance the soothing atmosphere. The chill spot is a testament to our commitment to creating a homely and comfortable living space for all our residents.</p>
-            <img src="images/Home/pngwing.com (2).png" alt="24/7 Medical Care">
+            <img src="images/Home/pngwing.com (2).png" alt="24/7 Medical Care"><hr class="hr">
         </div>
         <div class="col-md-4">
             <h4> Why Choose Us?</h4>
             <p>Choosing Golden Years Old Age Home means opting for excellence in elderly care. Our experienced team is dedicated to providing personalized care tailored to each resident’s needs. We prioritize health, happiness, and well-being, ensuring a positive and fulfilling experience. With us, your loved ones will enjoy their golden years with dignity and joy.  Our facility is designed to offer a home-like atmosphere with professional care and comfort. Our dedicated staff ensures that every resident feels valued and well-cared for, making their golden years truly special.</p>
-            <img src="images/Home/pngwing.com (1).png" alt="Comfortable Living">
+            <img src="images/Home/pngwing.com (1).png" alt="Comfortable Living"><hr class="hr">
         </div>
+
         <div class="col-md-4">
             <h4>Our Services</h4>
             <p>At Golden Years Old Age Home, we offer a comprehensive range of services to meet the diverse needs of our residents. Our 24/7 medical care ensures that help is always available. We provide comfortable living spaces that feel like home, complete with amenities to enhance quality of life. Additionally, our recreational activities keep residents active, engaged, and socially connected. Our wide range of activities ensures our residents stay active and engaged, fostering a sense of community.</p>
-            <img src="images/Home/pngwing.com.png" alt="Recreational Activities">
+            <img src="images/Home/pngwing.com.png" alt="Recreational Activities"><hr class="hr">
         </div>
     </div>
 </div>
 
+
+
+
+
  <!-- Site footer -->
  <footer class="site-footer">
-  <div class="container">
+  <div class="container"><hr class="hr">
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <h6>About Us</h6>

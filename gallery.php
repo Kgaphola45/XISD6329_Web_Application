@@ -41,29 +41,35 @@
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #007bff;">
     <div class="container">
-        <a class="navbar-brand" href="#">Golden Years Old Age Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand js-scroll-trigger" href="#" style="margin-top: 10px; margin-left:-65px; font-family: 'IBM Plex Sans', sans-serif;">
+            <h4><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Golden Years Old Age Home</h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home</a>
+                <li class="nav-item" style="margin-right: 40px;">
+                    <a class="nav-link js-scroll-trigger" href="index.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>HOME</h6>
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-right: 40px;">
+                    <a class="nav-link js-scroll-trigger" href="services.html" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>ABOUT US</h6>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">ABOUT US</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="gallery.php">GALLERY <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CONTACT US</a>
+                    <a class="nav-link js-scroll-trigger" href="contact.html" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>CONTACT</h6>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-panel1.php">Admin</a>
+                    <a class="nav-link js-scroll-trigger" href="gallery.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>GALLERY</h6>
+                    </a>
                 </li>
             </ul>
         </div>

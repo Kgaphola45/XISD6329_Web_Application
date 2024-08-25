@@ -1,6 +1,7 @@
 <?php
 session_start();
 $con=mysqli_connect("localhost","root","","myhmsdb");
+
 if(isset($_POST['patsub1'])){
 	$fname=$_POST['fname'];
   $lname=$_POST['lname'];
@@ -9,6 +10,19 @@ if(isset($_POST['patsub1'])){
   $contact=$_POST['contact'];
 	$password=$_POST['password'];
   $cpassword=$_POST['cpassword'];
+
+
+
+  // Get data from form for registrations
+$first_name = $_POST['fname2'];
+$last_name = $_POST['lname2'];
+$id_number = $_POST['IDNumber'];
+$relation = $_POST['relation'];
+$gender = $_POST['gender'];
+$contact = $_POST['contact'];
+$emergency_contact = $_POST['emerPhone'];
+
+  
   if($password==$cpassword){
   	$query="insert into patreg(fname,lname,gender,email,contact,password,cpassword) values ('$fname','$lname','$gender','$email','$contact','$password','$cpassword');";
     $result=mysqli_query($con,$query);
@@ -42,6 +56,16 @@ if(isset($_POST['update_data']))
 	if($result)
 		header("Location:updated.php");
 }
+
+// Get data from form for registrations
+$first_name = $_POST['fname'];
+$last_name = $_POST['lname'];
+$id_number = $_POST['IDNumber'];
+$relation = $_POST['relation'];
+$gender = $_POST['gender'];
+$contact = $_POST['contact'];
+$emergency_contact = $_POST['emerPhone'];
+
 
 
 

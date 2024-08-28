@@ -234,17 +234,32 @@ COMMIT;
 
 
 
--- createing table for registration form
-CREATE TABLE registrations (
+-- createing table for registration for the person who is entering the details form
+CREATE TABLE Relative_ToElderly (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    Physical_Address VARCHAR(255) NOT NULL,
     id_number VARCHAR(50) NOT NULL,
     relation VARCHAR(255) NOT NULL,
-    gender ENUM('Male', 'Female') NOT NULL,
+    gender varchar(10) NOT NULL,
     contact VARCHAR(15) NOT NULL,
     emergency_contact VARCHAR(15) NOT NULL
 );
+
+
+INSERT INTO Relative_ToElderly 
+(`first_name`, `last_name`, `email`, `Physical_Address`, `id_number`, `relation`, `gender`, `contact`, `emergency_contact`) 
+VALUES 
+('Sipho', 'Mokoena', 'sipho.mokoena@example.com', '123 Main Road, Johannesburg', '8501015109080', 'Family', 'Male', '071-123-4567', '082-234-5678'),
+('Zanele', 'Ngcobo', 'zanele.ngcobo@example.com', '456 Elm Street, Durban', '9001010624082', 'Family', 'Female', '073-234-5678', '083-345-6789'),
+('Thabo', 'Nkosi', 'thabo.nkosi@example.com', '789 Oak Avenue, Pretoria', '7401015286080', 'Relative', 'Male', '074-345-6789', '079-456-7890'),
+('Nandi', 'Dlamini', 'nandi.dlamini@example.com', '101 Pine Street, Cape Town', '8501010777085', 'Relative', 'Female', '081-456-7890', '074-567-8901'),
+('Mandela', 'Khosa', 'mandela.khosa@example.com', '202 Cedar Road, Port Elizabeth', '8601015102087', 'Family', 'Male', '082-567-8901', '071-678-9012'),
+('Lindiwe', 'Radebe', 'lindiwe.radebe@example.com', '303 Birch Lane, Bloemfontein', '9201010312089', 'Relative', 'Female', '076-678-9012', '083-789-0123');
+
+
 
 
 

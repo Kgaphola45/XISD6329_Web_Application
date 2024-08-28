@@ -135,8 +135,10 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Register as Elders</h3>
-                    <form method="post" action="func2.php">
+
+                    <h3 class="register-heading">Register as Elders: </h3>
+                    
+                    <method="post" action="func2.php">
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -187,13 +189,20 @@
                                     </div>
                                    
                                 </div>
-                            </div>
+                            </div> 
+
+
 
                             
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
+                                 
+                               <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
+                                </div>
+                    
 
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Your Email *" name="email" />
@@ -205,55 +214,73 @@
 
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
-                                </div>
+                                   
+                               </div>   
+</div>
+                         
 
-                               
-                            </div>
+                         <h3>Who's Registering for Elder: </h3>
+  
 
-                            
-
-                        </div>    <div class="container mt-5">
-        <h3>Who's Registering for Elder</h3>
-        <form method="post" action="func2.php">
-            <div class="row register-form">
-                <div class="col-md-6">
+                         <div class="col-md-6">  
+                          <div class="form-group">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
+                        <input type="text" class="form-control" placeholder="First Name *" name="first_name" onkeydown="return alphaOnly(event);" required/>
                     </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name *" name="last_name" onkeydown="return alphaOnly(event);" required/>
+                    </div>
+
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup="check();" required/>
                     </div>
+ </div>
+                  
+ 
+ </div> 
+ 
+                  <div class="col-md-6">  
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
                     </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="contact2" placeholder="Your Phone number *" required/>
+                    </div>
+              
+ 
+                   <div class="form-group">
+                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="emerPhone" placeholder="Emergency Number *"/>
+                    </div>
+
+                      </div> 
+ 
+                   
+                 
+                   
                     <div class="form-group">
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender" value="Male" checked>
+                            <input type="radio" class="form-check-input" name="gender2" value="Male" checked>
                             <label class="form-check-label">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender" value="Female">
+                            <input type="radio" class="form-check-input" name="gender2" value="Female">
                             <label class="form-check-label">Female</label>
                         </div>
-                        <br>
+                        
                         <a href="index1.php">Already have an account?</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="contact" placeholder="Your Phone number *" required/>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="emerPhone" placeholder="Emergency Number *"/>
-                    </div>
-                    <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                </div>
-            </div>
-        </form>
-    </div></div>
+                       
+                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
+                      
+               </div>
+              
+        </div> 
+    </div>
+</form>
+
 
 
 
@@ -275,6 +302,8 @@
                         </div>
                     </form>
                 </div>
+
+
                 <div class="tab-pane fade show" id="admin" role="tabpanel" aria-labelledby="profile-tab">
                     <h3 class="register-heading">Login as Admin</h3>
                     <form method="post" action="func3.php">

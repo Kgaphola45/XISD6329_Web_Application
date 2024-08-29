@@ -9,6 +9,25 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+         .gallery-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .gallery-caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
         body {
             background: -webkit-linear-gradient(left, #3931af, #00c6ff);
             background-size: cover;

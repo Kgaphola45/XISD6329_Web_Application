@@ -57,6 +57,21 @@
             font-weight: bold;
             margin-top: 10px;
         }
+        .gallery-intro {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .gallery-intro:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 
@@ -99,11 +114,12 @@
 <div class="container gallery-container">
     <h1 class="text-center mb-5">Welcome to Our Gallery</h1>
 
-<p>Explore the heart and soul of our old age home through our gallery. Here, 
-    you’ll find a collection of photos that capture the vibrant daily life, special events, and warm moments shared within our community. 
-    From engaging activities and joyous celebrations to serene spaces and heartfelt connections, our gallery offers a glimpse into the enriching environment we provide for our residents. 
-    We invite you to browse and see for yourself the nurturing and supportive atmosphere that defines our home.
-</p>
+    <p class="gallery-intro">
+        Explore the heart and soul of our old age home through our gallery. Here, 
+        you'll find a collection of photos that capture the vibrant daily life, special events, and warm moments shared within our community. 
+        From engaging activities and joyous celebrations to serene spaces and heartfelt connections, our gallery offers a glimpse into the enriching environment we provide for our residents. 
+        We invite you to browse and see for yourself the nurturing and supportive atmosphere that defines our home.
+    </p>
 
     <div class="row">
         <div class="col-md-4 gallery-item">

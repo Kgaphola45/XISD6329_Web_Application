@@ -34,6 +34,39 @@ if(isset($_POST['docsub1']))
   }
 }
 
+if(isset($_POST['addelderly']))
+{
+  $efname = $_POST['efname'];
+  $elname = $_POST['elname'];
+  $eemail = $_POST['eemail'];
+  $econtact = $_POST['econtact'];
+  $egender = $_POST['egender'];
+
+  $rfname = $_POST['rfname'];
+  $rlname = $_POST['rlname'];
+  $remail = $_POST['remail'];
+  $raddress = $_POST['raddress'];
+  $rid = $_POST['rid'];
+  $rrelation = $_POST['rrelation'];
+  $rgender = $_POST['rgender'];
+  $rcontact = $_POST['rcontact'];
+  $remergency = $_POST['remergency'];
+
+  $query1 = "INSERT INTO patreg(fname, lname, email, contact, gender) VALUES('$efname', '$elname', '$eemail', '$econtact', '$egender')";
+  $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, email, Physical_Address, id_number, relation, gender, contact, emergency_contact) VALUES('$rfname', '$rlname', '$remail', '$raddress', '$rid', '$rrelation', '$rgender', '$rcontact', '$remergency')";
+
+  $result1 = mysqli_query($con, $query1);
+  $result2 = mysqli_query($con, $query2);
+
+  if($result1 && $result2)
+  {
+    echo "<script>alert('Elderly and relative added successfully!');</script>";
+  }
+  else
+  {
+    echo "<script>alert('Error adding elderly and relative. Please try again.');</script>";
+  }
+}
 
 ?>
 <html lang="en">
@@ -139,7 +172,7 @@ if(isset($_POST['docsub1']))
       <a class="list-group-item list-group-item-action" href="#list-settings" id="list-adoc-list"  role="tab" data-toggle="list" aria-controls="home">Add Caregiver</a>
       <a class="list-group-item list-group-item-action" href="#list-settings1" id="list-ddoc-list"  role="tab" data-toggle="list" aria-controls="home">Delete Caregiver</a>
       <a class="list-group-item list-group-item-action" href="#list-mes" id="list-mes-list"  role="tab" data-toggle="list" aria-controls="home">Queries</a>
-      
+      <a class="list-group-item list-group-item-action" href="#list-addelderly" id="list-addelderly-list"  role="tab" data-toggle="list" aria-controls="home">Add Elderly</a>
     </div><br>
   </div>
   <div class="col-md-8" style="margin-top: 3%;">
@@ -585,14 +618,66 @@ if(isset($_POST['docsub1']))
         <br>
       </div>
 
+      <div class="tab-pane fade" id="list-addelderly" role="tabpanel" aria-labelledby="list-addelderly-list">
+        <form class="form-group" method="post" action="admin-panel1.php">
+          <h4>Elderly Information</h4>
+          <div class="row">
+            <div class="col-md-4"><label>First Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="efname" required></div><br><br>
+            <div class="col-md-4"><label>Last Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="elname" required></div><br><br>
+            <div class="col-md-4"><label>Email:</label></div>
+            <div class="col-md-8"><input type="email" class="form-control" name="eemail" required></div><br><br>
+            <div class="col-md-4"><label>Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="econtact" required></div><br><br>
+            <div class="col-md-4"><label>Gender:</label></div>
+            <div class="col-md-8">
+              <select name="egender" class="form-control" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div><br><br>
+          </div>
 
+          <h4>Relative Information</h4>
+          <div class="row">
+            <div class="col-md-4"><label>First Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rfname" required></div><br><br>
+            <div class="col-md-4"><label>Last Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rlname" required></div><br><br>
+            <div class="col-md-4"><label>Email:</label></div>
+            <div class="col-md-8"><input type="email" class="form-control" name="remail" required></div><br><br>
+            <div class="col-md-4"><label>Physical Address:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="raddress" required></div><br><br>
+            <div class="col-md-4"><label>ID Number:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rid" required></div><br><br>
+            <div class="col-md-4"><label>Relation:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rrelation" required></div><br><br>
+            <div class="col-md-4"><label>Gender:</label></div>
+            <div class="col-md-8">
+              <select name="rgender" class="form-control" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div><br><br>
+            <div class="col-md-4"><label>Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rcontact" required></div><br><br>
+            <div class="col-md-4"><label>Emergency Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="remergency" required></div><br><br>
+          </div>
+          <input type="submit" name="addelderly" value="Add Elderly" class="btn btn-primary">
+        </form>
+      </div>
 
     </div>
   </div>
 </div>
    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

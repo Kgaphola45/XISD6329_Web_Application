@@ -136,7 +136,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                    <h3 class="register-heading">Register as Elders: </h3>
+                <h3 class="register-heading">Register as Elders: </h3>
                     
                     <method="post" action="func2.php">
                         <div class="row register-form">
@@ -216,10 +216,10 @@
                                     <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
                                    
                                </div>   
+                       
 </div>
-                         
+                           <h3>Who's Registering for Elder: </h3>
 
-                         <h3>Who's Registering for Elder: </h3>
   
 
                          <div class="col-md-6">  
@@ -235,6 +235,16 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup="check();" required/>
                     </div>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender2" value="Male" checked>
+                            <label class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender2" value="Female">
+                            <label class="form-check-label">Female</label>
+                        </div>  
+               </div>
  </div>
                   
  
@@ -256,26 +266,15 @@
                         <input type="tel" class="form-control" minlength="10" maxlength="10" name="emerPhone" placeholder="Emergency Number *"/>
                     </div>
 
+                     
+                    <a href="index1.php">Already have an account?</a>
+                    <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
                       </div> 
  
                    
                  
                    
-                    <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender2" value="Male" checked>
-                            <label class="form-check-label">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender2" value="Female">
-                            <label class="form-check-label">Female</label>
-                        </div>
-                        
-                        <a href="index1.php">Already have an account?</a>
-                       
-                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                      
-               </div>
+                  
               
         </div> 
     </div>

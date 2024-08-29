@@ -19,14 +19,20 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .gallery-caption {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             margin-top: 10px;
-            opacity: 0.8;
-            transition: opacity 0.3s ease-in-out;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
         }
         .gallery-item:hover .gallery-caption {
-            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         body {
             background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -56,21 +62,8 @@
             font-size: 18px;
             font-weight: bold;
             margin-top: 10px;
-        }
-        .gallery-intro {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .gallery-intro:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -114,7 +107,7 @@
 <div class="container gallery-container">
     <h1 class="text-center mb-5">Welcome to Our Gallery</h1>
 
-    <p class="gallery-intro">
+    <p class="gallery-caption">
         Explore the heart and soul of our old age home through our gallery. Here, 
         you'll find a collection of photos that capture the vibrant daily life, special events, and warm moments shared within our community. 
         From engaging activities and joyous celebrations to serene spaces and heartfelt connections, our gallery offers a glimpse into the enriching environment we provide for our residents. 

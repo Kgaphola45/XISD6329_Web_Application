@@ -334,57 +334,86 @@ if(isset($_POST['addelderly']))
 
     <div class="tab-pane fade" id="list-pat" role="tabpanel" aria-labelledby="list-pat-list">
 
-       <div class="col-md-8">
-      <form class="form-group" action="patientsearch.php" method="post">
-        <div class="row">
-        <div class="col-md-10"><input type="text" name="patient_contact" placeholder="Enter Contact" class = "form-control"></div>
-        <div class="col-md-2"><input type="submit" name="patient_search_submit" class="btn btn-primary" value="Search"></div></div>
-      </form>
-    </div>
-        
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                  <th scope="col">Elders ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Password</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
-                    global $con;
-                    $query = "select * from patreg";
-                    $result = mysqli_query($con,$query);
-                    while ($row = mysqli_fetch_array($result)){
-                      $pid = $row['pid'];
-                      $fname = $row['fname'];
-                      $lname = $row['lname'];
-                      $gender = $row['gender'];
-                      $email = $row['email'];
-                      $contact = $row['contact'];
-                      $password = $row['password'];
-                      
-                      echo "<tr>
-                        <td>$pid</td>
-                        <td>$fname</td>
-                        <td>$lname</td>
-                        <td>$gender</td>
-                        <td>$email</td>
-                        <td>$contact</td>
-                        <td>$password</td>
-                      </tr>";
-                    }
-
-                  ?>
-                </tbody>
-              </table>
-        <br>
+      <div class="col-md-8">
+        <form class="form-group" action="patientsearch.php" method="post">
+          <div class="row">
+            <div class="col-md-10"><input type="text" name="patient_contact" placeholder="Enter Contact" class="form-control"></div>
+            <div class="col-md-2"><input type="submit" name="patient_search_submit" class="btn btn-primary" value="Search"></div>
+          </div>
+        </form>
       </div>
+
+      <h4>Elderly Information</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Elders ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+            $con=mysqli_connect("localhost","root","","myhmsdb");
+            global $con;
+            $query = "SELECT * FROM patreg";
+            $result = mysqli_query($con,$query);
+            while ($row = mysqli_fetch_array($result)){
+              echo "<tr>
+                <td>{$row['pid']}</td>
+                <td>{$row['fname']}</td>
+                <td>{$row['lname']}</td>
+                <td>{$row['gender']}</td>
+                <td>{$row['email']}</td>
+                <td>{$row['contact']}</td>
+              </tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+
+      <h4>Relative Information</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">ID Number</th>
+            <th scope="col">Relation</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Emergency Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+            $query = "SELECT * FROM Relative_ToElderly";
+            $result = mysqli_query($con,$query);
+            while ($row = mysqli_fetch_array($result)){
+              echo "<tr>
+                <td>{$row['id']}</td>
+                <td>{$row['first_name']}</td>
+                <td>{$row['last_name']}</td>
+                <td>{$row['email']}</td>
+                <td>{$row['Physical_Address']}</td>
+                <td>{$row['id_number']}</td>
+                <td>{$row['relation']}</td>
+                <td>{$row['gender']}</td>
+                <td>{$row['contact']}</td>
+                <td>{$row['emergency_contact']}</td>
+              </tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+      <br>
+    </div>
 
 
       <div class="tab-pane fade" id="list-pres" role="tabpanel" aria-labelledby="list-pres-list">
@@ -677,7 +706,8 @@ if(isset($_POST['addelderly']))
   </div>
 </div>
    </div>
-  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

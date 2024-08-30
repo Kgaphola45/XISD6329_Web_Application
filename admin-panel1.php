@@ -36,6 +36,7 @@ if(isset($_POST['docsub1']))
 
 if(isset($_POST['addelderly']))
 {
+  // Elderly Information
   $efname = $_POST['efname'];
   $elname = $_POST['elname'];
   $edob = $_POST['edob'];
@@ -54,26 +55,22 @@ if(isset($_POST['addelderly']))
   $especial_needs = $_POST['especial_needs'];
   $epassword = $_POST['epassword'];
   $ecpassword = $_POST['ecpassword'];
- 
 
-   // Relative Information
-   $rfname = $_POST['rfname'];
-   $rlname = $_POST['rlname'];
-   $rgender = $_POST['rgender'];
-   $remail = $_POST['remail'];
-   $rphysical_address = $_POST['rphysical_address'];
-   $rid_number = $_POST['rid_number'];
-   $rrelation = $_POST['rrelation'];
-   $rcontact = $_POST['rcontact'];
-   $remergency_contact = $_POST['remergency_contact'];
-   $radditional_notes = $_POST['radditional_notes'];
-  $result1 = mysqli_query($con, $query1);
-  $result2 = mysqli_query($con, $query2);
+  // Relative Information
+  $rfname = $_POST['rfname'];
+  $rlname = $_POST['rlname'];
+  $rgender = $_POST['rgender'];
+  $remail = $_POST['remail'];
+  $rphysical_address = $_POST['rphysical_address'];
+  $rid_number = $_POST['rid_number'];
+  $rrelation = $_POST['rrelation'];
+  $rcontact = $_POST['rcontact'];
+  $remergency_contact = $_POST['remergency_contact'];
+  $radditional_notes = $_POST['radditional_notes'];
 
   $query1 = "INSERT INTO patreg(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$eprimary_doctor_name', '$edoctor_contact', '$especial_needs', '$epassword', '$ecpassword')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, gender, email, physical_address, id_number, relation, contact, emergency_contact, additional_notes) VALUES('$rfname', '$rlname', '$rgender', '$remail', '$rphysical_address', '$rid_number', '$rrelation', '$rcontact', '$remergency_contact', '$radditional_notes')";
-  if($result1 && $result2)
-  
+
   $result1 = mysqli_query($con, $query1);
   $result2 = mysqli_query($con, $query2);
 
@@ -674,10 +671,8 @@ if(isset($_POST['addelderly']))
             <div class="col-md-8"><input type="text" class="form-control" name="efname" required></div><br><br>
             <div class="col-md-4"><label>Last Name:</label></div>
             <div class="col-md-8"><input type="text" class="form-control" name="elname" required></div><br><br>
-            <div class="col-md-4"><label>Email:</label></div>
-            <div class="col-md-8"><input type="email" class="form-control" name="eemail" required></div><br><br>
-            <div class="col-md-4"><label>Contact:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="econtact" required></div><br><br>
+            <div class="col-md-4"><label>Date of Birth:</label></div>
+            <div class="col-md-8"><input type="date" class="form-control" name="edob" required></div><br><br>
             <div class="col-md-4"><label>Gender:</label></div>
             <div class="col-md-8">
               <select name="egender" class="form-control" required>
@@ -687,6 +682,34 @@ if(isset($_POST['addelderly']))
                 <option value="Other">Other</option>
               </select>
             </div><br><br>
+            <div class="col-md-4"><label>Address:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="eaddress" required></div><br><br>
+            <div class="col-md-4"><label>Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="econtact" required></div><br><br>
+            <div class="col-md-4"><label>Email:</label></div>
+            <div class="col-md-8"><input type="email" class="form-control" name="eemail"></div><br><br>
+            <div class="col-md-4"><label>Emergency Contact Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="eemergency_contact_name" required></div><br><br>
+            <div class="col-md-4"><label>Emergency Contact Relationship:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="eemergency_contact_relationship" required></div><br><br>
+            <div class="col-md-4"><label>Emergency Contact Number:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="eemergency_contact_number" required></div><br><br>
+            <div class="col-md-4"><label>Medical Conditions:</label></div>
+            <div class="col-md-8"><textarea class="form-control" name="emedical_conditions"></textarea></div><br><br>
+            <div class="col-md-4"><label>Allergies:</label></div>
+            <div class="col-md-8"><textarea class="form-control" name="eallergies"></textarea></div><br><br>
+            <div class="col-md-4"><label>Current Medications:</label></div>
+            <div class="col-md-8"><textarea class="form-control" name="ecurrent_medications"></textarea></div><br><br>
+            <div class="col-md-4"><label>Primary Doctor Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="eprimary_doctor_name"></div><br><br>
+            <div class="col-md-4"><label>Doctor Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="edoctor_contact"></div><br><br>
+            <div class="col-md-4"><label>Special Needs:</label></div>
+            <div class="col-md-8"><textarea class="form-control" name="especial_needs"></textarea></div><br><br>
+            <div class="col-md-4"><label>Password:</label></div>
+            <div class="col-md-8"><input type="password" class="form-control" name="epassword" required></div><br><br>
+            <div class="col-md-4"><label>Confirm Password:</label></div>
+            <div class="col-md-8"><input type="password" class="form-control" name="ecpassword" required></div><br><br>
           </div>
 
           <h4>Relative Information</h4>
@@ -695,14 +718,6 @@ if(isset($_POST['addelderly']))
             <div class="col-md-8"><input type="text" class="form-control" name="rfname" required></div><br><br>
             <div class="col-md-4"><label>Last Name:</label></div>
             <div class="col-md-8"><input type="text" class="form-control" name="rlname" required></div><br><br>
-            <div class="col-md-4"><label>Email:</label></div>
-            <div class="col-md-8"><input type="email" class="form-control" name="remail" required></div><br><br>
-            <div class="col-md-4"><label>Physical Address:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="raddress" required></div><br><br>
-            <div class="col-md-4"><label>ID Number:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="rid" required></div><br><br>
-            <div class="col-md-4"><label>Relation:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="rrelation" required></div><br><br>
             <div class="col-md-4"><label>Gender:</label></div>
             <div class="col-md-8">
               <select name="rgender" class="form-control" required>
@@ -712,10 +727,20 @@ if(isset($_POST['addelderly']))
                 <option value="Other">Other</option>
               </select>
             </div><br><br>
+            <div class="col-md-4"><label>Email:</label></div>
+            <div class="col-md-8"><input type="email" class="form-control" name="remail" required></div><br><br>
+            <div class="col-md-4"><label>Physical Address:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rphysical_address" required></div><br><br>
+            <div class="col-md-4"><label>ID Number:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rid_number" required></div><br><br>
+            <div class="col-md-4"><label>Relation:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="rrelation" required></div><br><br>
             <div class="col-md-4"><label>Contact:</label></div>
             <div class="col-md-8"><input type="text" class="form-control" name="rcontact" required></div><br><br>
             <div class="col-md-4"><label>Emergency Contact:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="remergency" required></div><br><br>
+            <div class="col-md-8"><input type="text" class="form-control" name="remergency_contact" required></div><br><br>
+            <div class="col-md-4"><label>Additional Notes:</label></div>
+            <div class="col-md-8"><textarea class="form-control" name="radditional_notes"></textarea></div><br><br>
           </div>
           <input type="submit" name="addelderly" value="Add Elderly" class="btn btn-primary">
         </form>

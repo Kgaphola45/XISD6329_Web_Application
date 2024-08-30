@@ -23,7 +23,7 @@ This project is a web-based management system for Golden Years Old Age Home. It 
 
 1. Install a local server environment like XAMPP or WAMP.
 2. Clone this repository into your web server's root directory.
-3. Import the database schema (file not provided in the snippet, but should be named `myhmsdb`).
+3. Import the database schema named `myhmsdb`.
 4. Configure the database connection in the PHP files (currently set to localhost, root user, no password).
 5. Access the system through your web browser.
 

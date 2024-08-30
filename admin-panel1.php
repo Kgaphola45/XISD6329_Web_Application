@@ -69,9 +69,14 @@ if(isset($_POST['addelderly']))
    $radditional_notes = $_POST['radditional_notes'];
   $result1 = mysqli_query($con, $query1);
   $result2 = mysqli_query($con, $query2);
-  
+
   $query1 = "INSERT INTO patreg(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$eprimary_doctor_name', '$edoctor_contact', '$especial_needs', '$epassword', '$ecpassword')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, gender, email, physical_address, id_number, relation, contact, emergency_contact, additional_notes) VALUES('$rfname', '$rlname', '$rgender', '$remail', '$rphysical_address', '$rid_number', '$rrelation', '$rcontact', '$remergency_contact', '$radditional_notes')";
+  if($result1 && $result2)
+  
+  $result1 = mysqli_query($con, $query1);
+  $result2 = mysqli_query($con, $query2);
+
   if($result1 && $result2)
   {
     echo "<script>alert('Elderly and relative added successfully!');</script>";

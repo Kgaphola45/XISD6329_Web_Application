@@ -64,6 +64,7 @@
                 alert("Password must be at least 6 characters long. Try again!");
                 return false;
             }
+            return true; 
         }
     </script>
 
@@ -138,44 +139,54 @@
 
                 <h3 class="register-heading">Register as Elders: </h3>
                     
-                    <method="post" action="func2.php">
+                    <form method="post" action="func2.php">
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="First Name *" name="fname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
-
-
-                               
-
-
                                 <div class="form-group">
-                                    <input type="ElderID" minlength="13" maxlength="14" class="form-control" placeholder="Enter Elder ID number *" name="ElderID" onkeyup='check();' required/>
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
-                                 
-
-
                                 <div class="form-group">
-                                    <input type="Allergies" class="form-control" placeholder="what Allergies does elder have *" name="Allergies" onkeyup='check();' required/>
+                                    <input type="date" class="form-control" placeholder="Date of Birth *" name="dob" required/>
                                 </div>
-
-
                                 <div class="form-group">
-                                    <input type="mobility" class="form-control" placeholder=" mobility used 'eg walker, wheelchair' *" name="Allergies" onkeyup='check();' required/>
+                                    <input type="text" class="form-control" placeholder="Address *" name="address" required/>
                                 </div>
-
-
-                               
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Contact Number *" name="contact" required/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email" name="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Medical Conditions" name="medical_conditions"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Allergies" name="allergies"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Current Medications" name="current_medications"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Primary Doctor Name" name="primary_doctor_name"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Doctor Contact" name="doctor_contact"/>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Special Needs" name="special_needs"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" id="password" name="password" required/>
+                                </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
                                     <span id='message'></span>
                                 </div>
-                              
-                                 
-
-
-
-
                                 <div class="form-group">
                                     <div class="maxl">
                                         <label class="radio inline"> 
@@ -187,100 +198,59 @@
                                             <span>Female </span> 
                                         </label>
                                     </div>
-                                   
                                 </div>
-                            </div> 
+                            </div>
+                        </div>
 
-
-
-                            
+                        <h3>Who's Registering for Elder: </h3>
+                        <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
+                                    <input type="text" class="form-control" placeholder="First Name *" name="relative_first_name" required/>
                                 </div>
-                                 
-                               <div class="form-group">
-                               <input type="text" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
-                                </div>
-                    
-
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" />
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="relative_last_name" required/>
                                 </div>
-
                                 <div class="form-group">
-                                    <input type="Medication"  class="form-control" placeholder="List current Medications*" name="Medication" onkeyup='check();' required/>
+                                    <input type="email" class="form-control" placeholder="Email *" name="relative_email" required/>
                                 </div>
-
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
-                                   
-                               </div>   
-                       
-</div>
-                           <h3>Who's Registering for Elder: </h3>
-
-  
-
-                         <div class="col-md-6">  
-                          <div class="form-group">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="First Name *" name="first_name" onkeydown="return alphaOnly(event);" required/>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Last Name *" name="last_name" onkeydown="return alphaOnly(event);" required/>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter ID number *" name="IDNumber" onkeyup="check();" required/>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender2" value="Male" checked>
-                            <label class="form-check-label">Male</label>
+                                    <input type="text" class="form-control" placeholder="Physical Address *" name="relative_physical_address" required/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="ID Number *" name="relative_id_number" required/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Relation to elderly *" name="relative_relation" required/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Contact Number *" name="relative_contact" required/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Emergency Contact Number *" name="relative_emergency_contact" required/>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Additional Notes" name="relative_additional_notes"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline"> 
+                                            <input type="radio" name="relative_gender" value="Male" checked>
+                                            <span> Male </span> 
+                                        </label>
+                                        <label class="radio inline"> 
+                                            <input type="radio" name="relative_gender" value="Female">
+                                            <span>Female </span> 
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender2" value="Female">
-                            <label class="form-check-label">Female</label>
-                        </div>  
-               </div>
- </div>
-                  
- 
- </div> 
- 
-                  <div class="col-md-6">  
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Relation to elderly *" name="relation" required/>
-                    </div>
-                    
-                    
-                    
-                    <div class="form-group">
-                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="contact2" placeholder="Your Phone number *" required/>
-                    </div>
-              
- 
-                   <div class="form-group">
-                        <input type="tel" class="form-control" minlength="10" maxlength="10" name="emerPhone" placeholder="Emergency Number *"/>
-                    </div>
-
-                     
-                    <a href="index1.php">Already have an account?</a>
-                    <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                      </div> 
- 
-                   
-                 
-                   
-                  
-              
-        </div> 
-    </div>
-</form>
-
-
+                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
+                    </form>
+                </div>
 
 
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -345,7 +315,7 @@
         </div>
         <div class="col-md-4">
             <h4> Why Choose Us?</h4>
-            <p>Choosing Golden Years Old Age Home means opting for excellence in elderly care. Our experienced team is dedicated to providing personalized care tailored to each resident’s needs. We prioritize health, happiness, and well-being, ensuring a positive and fulfilling experience. With us, your loved ones will enjoy their golden years with dignity and joy.  Our facility is designed to offer a home-like atmosphere with professional care and comfort. Our dedicated staff ensures that every resident feels valued and well-cared for, making their golden years truly special.</p>
+            <p>Choosing Golden Years Old Age Home means opting for excellence in elderly care. Our experienced team is dedicated to providing personalized care tailored to each resident's needs. We prioritize health, happiness, and well-being, ensuring a positive and fulfilling experience. With us, your loved ones will enjoy their golden years with dignity and joy.  Our facility is designed to offer a home-like atmosphere with professional care and comfort. Our dedicated staff ensures that every resident feels valued and well-cared for, making their golden years truly special.</p>
             <img src="images/Home/pngwing.com (1).png" alt="Comfortable Living"><hr class="hr">
         </div>
 

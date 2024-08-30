@@ -38,20 +38,22 @@ if(isset($_POST['addelderly']))
 {
   $efname = $_POST['efname'];
   $elname = $_POST['elname'];
-  $eemail = $_POST['eemail'];
-  $econtact = $_POST['econtact'];
+  $edob = $_POST['edob'];
   $egender = $_POST['egender'];
-
-  $rfname = $_POST['rfname'];
-  $rlname = $_POST['rlname'];
-  $remail = $_POST['remail'];
-  $raddress = $_POST['raddress'];
-  $rid = $_POST['rid'];
-  $rrelation = $_POST['rrelation'];
-  $rgender = $_POST['rgender'];
-  $rcontact = $_POST['rcontact'];
-  $remergency = $_POST['remergency'];
-
+  $eaddress = $_POST['eaddress'];
+  $econtact = $_POST['econtact'];
+  $eemail = $_POST['eemail'];
+  $eemergency_contact_name = $_POST['eemergency_contact_name'];
+  $eemergency_contact_relationship = $_POST['eemergency_contact_relationship'];
+  $eemergency_contact_number = $_POST['eemergency_contact_number'];
+  $emedical_conditions = $_POST['emedical_conditions'];
+  $eallergies = $_POST['eallergies'];
+  $ecurrent_medications = $_POST['ecurrent_medications'];
+  $eprimary_doctor_name = $_POST['eprimary_doctor_name'];
+  $edoctor_contact = $_POST['edoctor_contact'];
+  $especial_needs = $_POST['especial_needs'];
+  $epassword = $_POST['epassword'];
+  $ecpassword = $_POST['ecpassword'];
   $query1 = "INSERT INTO patreg(fname, lname, email, contact, gender) VALUES('$efname', '$elname', '$eemail', '$econtact', '$egender')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, email, Physical_Address, id_number, relation, gender, contact, emergency_contact) VALUES('$rfname', '$rlname', '$remail', '$raddress', '$rid', '$rrelation', '$rgender', '$rcontact', '$remergency')";
 

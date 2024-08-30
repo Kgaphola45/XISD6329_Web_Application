@@ -57,6 +57,17 @@ if(isset($_POST['addelderly']))
   $query1 = "INSERT INTO patreg(fname, lname, email, contact, gender) VALUES('$efname', '$elname', '$eemail', '$econtact', '$egender')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, email, Physical_Address, id_number, relation, gender, contact, emergency_contact) VALUES('$rfname', '$rlname', '$remail', '$raddress', '$rid', '$rrelation', '$rgender', '$rcontact', '$remergency')";
 
+   // Relative Information
+   $rfname = $_POST['rfname'];
+   $rlname = $_POST['rlname'];
+   $rgender = $_POST['rgender'];
+   $remail = $_POST['remail'];
+   $rphysical_address = $_POST['rphysical_address'];
+   $rid_number = $_POST['rid_number'];
+   $rrelation = $_POST['rrelation'];
+   $rcontact = $_POST['rcontact'];
+   $remergency_contact = $_POST['remergency_contact'];
+   $radditional_notes = $_POST['radditional_notes'];
   $result1 = mysqli_query($con, $query1);
   $result2 = mysqli_query($con, $query2);
 

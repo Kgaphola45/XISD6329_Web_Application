@@ -187,6 +187,7 @@
                                     <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password *" name="cpassword" onkeyup='check();' required/>
                                     <span id='message'></span>
                                 </div>
+                                  
                                 <div class="form-group">
                                     <div class="maxl">
                                         <label class="radio inline"> 
@@ -197,15 +198,15 @@
                                             <input type="radio" name="gender" value="Female">
                                             <span>Female </span> 
                                         </label>
-                                    </div>
+                            
+                                        </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <h3>Who's Registering for Elder: </h3>
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
+                            </div> <h3>Who's Registering for Elder: </h3>
+                           
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        
+                            <div class="form-group">
                                     <input type="text" class="form-control" placeholder="First Name *" name="relative_first_name" required/>
                                 </div>
                                 <div class="form-group">
@@ -220,8 +221,9 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="ID Number *" name="relative_id_number" required/>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
+                        </div>  </div>
+                        
+                        <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Relation to elderly *" name="relative_relation" required/>
                                 </div>
@@ -244,13 +246,13 @@
                                             <input type="radio" name="relative_gender" value="Female">
                                             <span>Female </span> 
                                         </label>
-                                    </div>
+                                   <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>  </div>
                                 </div>
-                            </div>
                         </div>
-                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
+                   
+                       
                     </form>
-                </div>
+                    </div> </div> 
 
 
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">

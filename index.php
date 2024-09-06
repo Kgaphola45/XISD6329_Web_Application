@@ -112,12 +112,107 @@
 </nav>
 
 <div class="container welcome-section">
+   <br>
    
+   <h1>Welcome to Golden Years Old Age Home</h1>
     
-    <img src="images/logo/logo.png" alt="Welcome to Golden Years Old Age Home" width="300" height="200">
-    <h1>Welcome to Golden Years Old Age Home</h1>
-    <p>Your comfort and well-being are our top priorities. At Golden Years, we provide a safe and nurturing environment where our residents can enjoy their golden years with dignity and respect.</p>
-</div>
+    </div>
+<br>
+  
+<style>
+.hero-container {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    background-color:#4376de;
+}
+
+.hero-content {
+    position: absolute;
+    top: 80%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+}
+
+.links a {
+    color: white;
+    
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+    background-color: #fff;
+    left: 100;
+    color: #000;
+}
+
+.slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 1;
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}</style>
+
+         
+<div class="hero-container">
+        <div class="hero-content">
+            <h1>Golden Years Old Age Home</h1>
+           <div class="links">
+                <a href="services.html" class="link" data-slide="1">Get To Know Us</a>
+        
+              
+                <a href="signup.php" class="link" data-slide="2">Contact Us</a>
+                <a href="#gallery" class="link" data-slide="3">See Our Gallery</a>
+            </div>
+        </div>
+        <div class="slides">
+            <div class="slide" id="slide-1">
+                <img src="images/Home/retiree-7390179_1280.jpg" alt="About Us">
+            </div>
+            <div class="slide" id="slide-2">
+                <img src="images/Home/make-a-phone-call-5190643_1280.jpg" alt="Contact Us">
+            </div>
+            <div class="slide" id="slide-3">
+                <img src="images/Home/skin-3358873_1280.jpg" alt="Gallery">
+            </div>
+        </div>
+    </div>
+    
+
+
 
 
 
@@ -334,6 +429,23 @@
     </div>
 </div>
 
+
+ <!-- for the hero selection -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slidesContainer = document.querySelector('.slides');
+            const links = document.querySelectorAll('.links a');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const slideIndex = link.getAttribute('data-slide');
+                    const offset = (slideIndex - 1) * -100;
+                    slidesContainer.style.transform = `translateX(${offset}%)`;
+                });
+            });
+        });
+    </script>
 
 
 

@@ -18,52 +18,30 @@ $con=mysqli_connect("localhost","root","","myhmsdb");
 if(isset($_POST['app-submit']))
 {
   $pid = $_SESSION['pid'];
-  $username = $_SESSION['username'];
-  $email = $_SESSION['email'];
   $fname = $_SESSION['fname'];
   $lname = $_SESSION['lname'];
   $gender = $_SESSION['gender'];
+  $email = $_SESSION['email'];
   $contact = $_SESSION['contact'];
-  $doctor=$_POST['doctor'];
-  $email=$_SESSION['email'];
-  # $fees=$_POST['fees'];
-  $donationFee=$_POST['donationFee'];
-
-  $appdate=$_POST['appdate'];
-  $apptime=$_POST['apptime'];
-  $cur_date = date("Y-m-d");
-  date_default_timezone_set('Asia/Kolkata');
-  $cur_time = date("H:i:s");
-  $apptime1 = strtotime($apptime);
-  $appdate1 = strtotime($appdate);
-	
-  if(date("Y-m-d",$appdate1)>=$cur_date){
-    if((date("Y-m-d",$appdate1)==$cur_date and date("H:i:s",$apptime1)>$cur_time) or date("Y-m-d",$appdate1)>$cur_date) {
-      $check_query = mysqli_query($con,"select apptime from appointmenttb where doctor='$doctor' and appdate='$appdate' and apptime='$apptime'");
-
-        if(mysqli_num_rows($check_query)==0){
-          $query=mysqli_query($con,"insert into appointmenttb(pid,fname,lname,gender,email,contact,doctor,donationFee,appdate,apptime,userStatus,doctorStatus) values($pid,'$fname','$lname','$gender','$email','$contact','$doctor','$donationFee','$appdate','$apptime','1','1')");
-
-          if($query)
-          {
-            echo "<script>alert('Your appointment successfully booked');</script>";
-          }
-          else{
-            echo "<script>alert('Unable to process your request. Please try again!');</script>";
-          }
-      }
-      else{
-        echo "<script>alert('We are sorry to inform that the doctor is not available in this time or date. Please choose different time or date!');</script>";
-      }
-    }
-    else{
-      echo "<script>alert('Select a time or date in the future!');</script>";
-    }
+  $doctor = $_POST['doctor'];
+  $donationFee = $_POST['donationFee']; // New line to get the donation fee
+  $appdate = $_POST['appdate'];
+  $apptime = $_POST['apptime'];
+  
+  $query = "INSERT INTO appointmenttb (pid, fname, lname, gender, email, contact, doctor, docFees, appdate, apptime, userStatus, doctorStatus) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
+  
+  $stmt = mysqli_prepare($con, $query);
+  mysqli_stmt_bind_param($stmt, "issssssdss", $pid, $fname, $lname, $gender, $email, $contact, $doctor, $donationFee, $appdate, $apptime);
+  
+  if(mysqli_stmt_execute($stmt))
+  {
+    echo "<script>alert('Your appointment successfully booked');</script>";
   }
   else{
-      echo "<script>alert('Select a time or date in the future!');</script>";
+    echo "<script>alert('Unable to process your request. Please try again!');</script>";
   }
-  
+  mysqli_stmt_close($stmt);
 }
 
 if(isset($_GET['cancel']))
@@ -78,24 +56,23 @@ if(isset($_GET['cancel']))
 
 
 
-
 function generate_bill(){
   $con=mysqli_connect("localhost","root","","myhmsdb");
   $pid = $_SESSION['pid'];
   $output='';
-  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.donationFee from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
+  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
   while($row = mysqli_fetch_array($query)){
     $output .= '
-    <label> Elders ID : </label>'.$row["pid"].'<br/><br/>
+    <label> Patient ID : </label>'.$row["pid"].'<br/><br/>
     <label> Appointment ID : </label>'.$row["ID"].'<br/><br/>
-    <label> Elders Name : </label>'.$row["fname"].' '.$row["lname"].'<br/><br/>
-    <label> Caregiver Name : </label>'.$row["doctor"].'<br/><br/>
+    <label> Patient Name : </label>'.$row["fname"].' '.$row["lname"].'<br/><br/>
+    <label> Care Giver : </label>'.$row["doctor"].'<br/><br/>
     <label> Appointment Date : </label>'.$row["appdate"].'<br/><br/>
     <label> Appointment Time : </label>'.$row["apptime"].'<br/><br/>
     <label> Disease : </label>'.$row["disease"].'<br/><br/>
     <label> Allergies : </label>'.$row["allergy"].'<br/><br/>
     <label> Prescription : </label>'.$row["prescription"].'<br/><br/>
-    <label> Fees Paid : </label>'.$row["donationFee"].'<br/>
+    <label> Fees Paid : </label>'.$row["docFees"].'<br/>
     
     ';
 
@@ -105,39 +82,6 @@ function generate_bill(){
 }
 
 
-if(isset($_GET["generate_bill"])){
-  require_once("TCPDF/tcpdf.php");
-  $obj_pdf = new TCPDF('P',PDF_UNIT,PDF_PAGE_FORMAT,true,'UTF-8',false);
-  $obj_pdf -> SetCreator(PDF_CREATOR);
-  $obj_pdf -> SetTitle("Generate Bill");
-  $obj_pdf -> SetHeaderData('','',PDF_HEADER_TITLE,PDF_HEADER_STRING);
-  $obj_pdf -> SetHeaderFont(Array(PDF_FONT_NAME_MAIN,'',PDF_FONT_SIZE_MAIN));
-  $obj_pdf -> SetFooterFont(Array(PDF_FONT_NAME_MAIN,'',PDF_FONT_SIZE_MAIN));
-  $obj_pdf -> SetDefaultMonospacedFont('helvetica');
-  $obj_pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
-  $obj_pdf -> SetMargins(PDF_MARGIN_LEFT,'5',PDF_MARGIN_RIGHT);
-  $obj_pdf -> SetPrintHeader(false);
-  $obj_pdf -> SetPrintFooter(false);
-  $obj_pdf -> SetAutoPageBreak(TRUE, 10);
-  $obj_pdf -> SetFont('helvetica','',12);
-  $obj_pdf -> AddPage();
-
-  $content = '';
-
-  $content .= '
-      <br/>
-      <h2 align ="center"> Global Hospitals</h2></br>
-      <h3 align ="center"> Bill</h3>
-      
-
-  ';
- 
-  $content .= generate_bill();
-  $obj_pdf -> writeHTML($content);
-  ob_end_clean();
-  $obj_pdf -> Output("bill.pdf",'I');
-
-}
 
 function get_specs(){
   $con=mysqli_connect("localhost","root","","myhmsdb");
@@ -155,13 +99,13 @@ function get_specs(){
   <head>
 
 
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap CSS -->
+  
     
         <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 
@@ -178,7 +122,7 @@ function get_specs(){
     
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>  Golden Years Old Age Home </a>
+  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Golden Years Old Age Home </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -303,7 +247,7 @@ function get_specs(){
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <center><h4>Create an Family Visits Appointment</h4></center><br>
+              <center><h4>Create an appointment</h4></center><br>
               <form class="form-group" method="post" action="admin-panel.php">
                 <div class="row">
                   
@@ -322,11 +266,11 @@ function get_specs(){
         
 
                     <div class="col-md-4">
-                          <label for="spec">Reason:</label>
+                          <label for="spec">Specialization:</label>
                         </div>
                         <div class="col-md-8">
                           <select name="spec" class="form-control" id="spec">
-                              <option value="" disabled selected>Select Reason</option>
+                              <option value="" disabled selected>Select Specialization</option>
                               <?php 
                               display_specs();
                               ?>
@@ -351,10 +295,10 @@ function get_specs(){
 
                   </script>
 
-              <div class="col-md-4"><label for="doctor">Caregivers:</label></div>
+              <div class="col-md-4"><label for="doctor">Care Giver:</label></div>
                 <div class="col-md-8">
                     <select name="doctor" class="form-control" id="doctor" required="required">
-                      <option value="" disabled selected>Select Caregiver For Your Elder</option>
+                      <option value="" disabled selected>Select Doctor</option>
                 
                       <?php display_docs(); ?>
                     </select>
@@ -364,78 +308,27 @@ function get_specs(){
                         <script>
               document.getElementById('doctor').onchange = function updateFees(e) {
                 var selection = document.querySelector(`[value=${this.value}]`).getAttribute('data-value');
-                document.getElementById('donationFee').value = selection;
+                document.getElementById('docFees').value = selection;
               };
             </script>
 
-                  
-                  
-
-                  
-                        <!-- <div class="col-md-4"><label for="doctor">Caregivers:</label></div>
-                                <div class="col-md-8">
-                                    <select name="doctor" class="form-control" id="doctor1" required="required">
-                                      <option value="" disabled selected>Select Caregiver</option>
-                                      
-                                    </select>
-                                </div>
-                                <br><br> -->
-
-                                <!-- <script>
-                                  document.getElementById("spec").onchange = function updateSpecs(event) {
-                                      var selected = document.querySelector(`[data-value=${this.value}]`).getAttribute("value");
-                                      console.log(selected);
-
-                                      var options = document.getElementById("doctor1").querySelectorAll("option");
-
-                                      for (i = 0; i < options.length; i++) {
-                                        var currentOption = options[i];
-                                        var category = options[i].getAttribute("data-spec");
-
-                                        if (category == selected) {
-                                          currentOption.style.display = "block";
-                                        } else {
-                                          currentOption.style.display = "none";
-                                        }
-                                      }
-                                    }
-                                </script> -->
-
-                        
-                    <!-- <script>
-                    let data = 
-                
-              document.getElementById('spec').onchange = function updateSpecs(e) {
-                let values = data.filter(obj => obj.spec == this.value).map(o => o.username);   
-                document.getElementById('doctor1').value = document.querySelector(`[value=${values}]`).getAttribute('data-value');
-              };
-            </script> -->
+              
 
 
                   
-                  <div class="col-md-4"><label for="consultancyfees">
-                                Donation
+                  <div class="col-md-4"><label for="donationFee">
+                                Donation Fee
                               </label></div>
                               <div class="col-md-8">
-                              <!-- <div id="donationFee">Select a doctor</div> -->
-                              <input class="form-control" type="text" name="donationFee" id="donationFee" readonly="readonly"/>
+                              <input class="form-control" type="number" name="donationFee" id="donationFee" required min="0" step="0.01"/>
                   </div><br><br>
 
-                  <div class="col-md-4"><label>Appointment Date</label></div>
+                  <div class="col-md-4"><label>Date</label></div>
                   <div class="col-md-8"><input type="date" class="form-control datepicker" name="appdate"></div><br><br>
 
-                  <div class="col-md-4"><label>Appointment Time</label></div>
+                  <div class="col-md-4"><label>Time</label></div>
                   <div class="col-md-8">
-                    <!-- <input type="time" class="form-control" name="apptime"> -->
-                    <select name="apptime" class="form-control" id="apptime" required="required">
-                      <option value="" disabled selected>Select Time</option>
-                      <option value="08:00:00">8:00 AM</option>
-                      <option value="10:00:00">10:00 AM</option>
-                      <option value="12:00:00">12:00 PM</option>
-                      <option value="14:00:00">2:00 PM</option>
-                      <option value="16:00:00">4:00 PM</option>
-                    </select>
-
+                    <input type="time" class="form-control" name="apptime">
                   </div><br><br>
 
                   <div class="col-md-4">
@@ -455,8 +348,8 @@ function get_specs(){
                 <thead>
                   <tr>
                     
-                    <th scope="col">Caregiver Name</th>
-                    <th scope="col">Donation</th>
+                    <th scope="col">Care Giver</th>
+                    <th scope="col">Donation Fee</th>
                     <th scope="col">Appointment Date</th>
                     <th scope="col">Appointment Time</th>
                     <th scope="col">Current Status</th>
@@ -469,18 +362,15 @@ function get_specs(){
                     $con=mysqli_connect("localhost","root","","myhmsdb");
                     global $con;
 
-                    $query = "select ID,doctor,donationFee,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
+                    $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
               
-                      #$fname = $row['fname'];
-                      #$lname = $row['lname'];
-                      #$email = $row['email'];
-                      #$contact = $row['contact'];
+                  
                   ?>
                       <tr>
                         <td><?php echo $row['doctor'];?></td>
-                        <td><?php echo $row['donationFee'];?></td>
+                        <td><?php echo $row['docFees'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         
@@ -496,7 +386,7 @@ function get_specs(){
 
                     if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
                     {
-                      echo "Cancelled by Caregiver";
+                      echo "Cancelled by Doctor";
                     }
                         ?></td>
 
@@ -529,14 +419,14 @@ function get_specs(){
                 <thead>
                   <tr>
                     
-                    <th scope="col">Caregiver Name</th>
+                    <th scope="col">Care Giver</th>
                     <th scope="col">Appointment ID</th>
                     <th scope="col">Appointment Date</th>
                     <th scope="col">Appointment Time</th>
                     <th scope="col">Diseases</th>
                     <th scope="col">Allergies</th>
                     <th scope="col">Prescriptions</th>
-                    <th scope="col"> Payment</th>
+                    <th scope="col">Bill Payment</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -592,10 +482,10 @@ function get_specs(){
       <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
         <form class="form-group" method="post" action="func.php">
-          <label>Caregivers name: </label>
-          <input type="text" name="name" placeholder="Enter doctors name" class="form-control">
+          <label>Care Giver name: </label>
+          <input type="text" name="name" placeholder="Enter Care Giver name" class="form-control">
           <br>
-          <input type="submit" name="doc_sub" value="Add Caregiver" class="btn btn-primary">
+          <input type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
         </form>
       </div>
        <div class="tab-pane fade" id="list-attend" role="tabpanel" aria-labelledby="list-attend-list">...</div>

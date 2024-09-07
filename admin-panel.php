@@ -262,17 +262,7 @@ function get_specs(){
                   ?> -->
         
 
-                    <div class="col-md-4">
-                          <label for="spec">Reason:</label>
-                        </div>
-                        <div class="col-md-8">
-                          <select name="spec" class="form-control" id="spec">
-                              <option value="" disabled selected>Select the reason for your appointment</option>
-                              <?php 
-                              display_specs();
-                              ?>
-                          </select>
-                        </div>
+               
 
                         <br><br>
 

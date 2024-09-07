@@ -263,11 +263,11 @@ function get_specs(){
         
 
                     <div class="col-md-4">
-                          <label for="spec">Specialization:</label>
+                          <label for="spec">Reason:</label>
                         </div>
                         <div class="col-md-8">
                           <select name="spec" class="form-control" id="spec">
-                              <option value="" disabled selected>Select Specialization</option>
+                              <option value="" disabled selected>Select the reason for your appointment</option>
                               <?php 
                               display_specs();
                               ?>
@@ -295,7 +295,7 @@ function get_specs(){
               <div class="col-md-4"><label for="doctor">Care Giver:</label></div>
                 <div class="col-md-8">
                     <select name="doctor" class="form-control" id="doctor" required="required">
-                      <option value="" disabled selected>Select Doctor</option>
+                      <option value="" disabled selected>Select Care giver</option>
                 
                       <?php display_docs(); ?>
                     </select>

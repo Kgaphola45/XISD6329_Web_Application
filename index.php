@@ -249,22 +249,28 @@
 </div>
 
 
- <!-- for the hero selection -->
+<!-- for the hero selection -->
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slidesContainer = document.querySelector('.slides');
-            const links = document.querySelectorAll('.links a');
-            
-            links.forEach(link => {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    const slideIndex = link.getAttribute('data-slide');
-                    const offset = (slideIndex - 1) * -100;
-                    slidesContainer.style.transform = `translateX(${offset}%)`;
-                });
-            });
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slidesContainer = document.querySelector('.slides');
+        const links = document.querySelectorAll('.links a');
+        let slideIndex = 1;
+        const totalSlides = links.length;
+
+        // Function to change the slide
+        function changeSlide() {
+            const offset = (slideIndex - 1) * -100;
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+            slideIndex++;
+            if (slideIndex > totalSlides) {
+                slideIndex = 1;
+            }
+        }
+
+        // Change the slide every 2 seconds
+        setInterval(changeSlide, 2000);
+    });
+</script>
 
 
 

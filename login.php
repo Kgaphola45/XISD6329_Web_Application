@@ -105,7 +105,58 @@ include("header.php");
       </div>
     </div>
 
+<!-- Site footer -->
+<footer class="site-footer">
+  <div class="container"><hr class="hr">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>About Us</h6>
+        <p class="text-justify">Our old age home provides compassionate care and support for seniors. Our dedicated staff ensures a comfortable living environment with medical attention, recreational activities, and personalized care plans. We aim to enhance the quality of life for our residents through professional and heartfelt service.</p>
+      </div>
 
+      <div class="col-xs-6 col-md-3">
+        <h6>Services</h6>
+        <ul class="footer-links">
+          <li><a href="#">Medical Care</a></li>
+          <li><a href="#">Daily Assistance</a></li>
+          <li><a href="#">Recreational Activities</a></li>
+          <li><a href="#">Nutrition and Meals</a></li>
+          <li><a href="#">Family Support</a></li>
+          <li><a href="#">Safety and Security</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Visit Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by 
+         <a href="#">Our Old Age Home</a>.
+        </p>
+      </div>
+   
+      <div class="col-md-4 col-sm-6 col-xs-12">
+  <ul class="social-icons">
+    <li><a class="facebook" href="#"><img src="images/footer Icons/facebook.png" alt="Facebook"></a></li>
+    <li><a class="twitter" href="#"><img src="images/footer Icons/twitter.png" alt="Twitter"></a></li>
+    <li><a class="linkedin" href="#"><img src="images/footer Icons/linkedIn.png" alt="LinkedIn"></a></li>
+  </ul>
+</div>
+    </div>
+  </div>
+</footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

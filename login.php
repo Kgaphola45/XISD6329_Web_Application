@@ -11,66 +11,6 @@ include("header.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-    <style>
-        .form-control {
-            border-radius: 0.75rem;
-        }
-        .welcome-section {
-            text-align: center;
-            margin-top: 50px;
-            color: white;
-        }
-        .services-section, .contact-section {
-            margin-top: 50px;
-            margin-left: auto; 
-            margin-right: auto; 
-            max-width: 1200px; 
-            text-align: center;
-            color: white;
-        }
-        .services-section img, .welcome-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
- 
-        h3 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-     
-    </style>
-
-
-
-    <script>
-        var check = function() {
-            if (document.getElementById('password').value ==
-                document.getElementById('cpassword').value) {
-                document.getElementById('message').style.color = '#5dd05d';
-                document.getElementById('message').innerHTML = 'Matched';
-            } else {
-                document.getElementById('message').style.color = '#aa4f4f';
-                document.getElementById('message').innerHTML = 'Not Matching';
-            }
-        }
-
-        function alphaOnly(event) {
-            var key = event.keyCode;
-            return ((key >= 65 && key <= 90) || key == 8 || key == 32);
-        };
-
-        function checklen() {
-            var pass1 = document.getElementById("password");
-            if (pass1.value.length < 6) {
-                alert("Password must be at least 6 characters long. Try again!");
-                return false;
-            }
-            return true; 
-        }
-    </script>
-
 </head>
 
 <body>
@@ -123,11 +63,14 @@ include("header.php");
          <div class="col-md-7" style="padding-left: 180px; ">
                  <div style="-webkit-animation: mover 2s infinite alternate;
     animation: mover 1s infinite alternate;">
-          <img src="images/ambulance1.png" alt="" style="width: 20%;padding-left: 40px;margin-top: 150px;margin-left: 45px;margin-bottom:15px">
+          <img src="images/logo/logo.png" alt="" style="width: 20%;padding-left: 40px;margin-top: 150px;margin-left: 45px;margin-bottom:15px">
+        
       </div>
 
+      
+
       <div style="color: white;">
-            <h4 style="font-family: 'IBM Plex Sans', sans-serif;"> </h4>
+            <h1 style="font-family: 'IBM Plex Sans', sans-serif;"> Golden Years Old Age Home</h1>
           </div>
 
          </div>
@@ -139,16 +82,18 @@ include("header.php");
                 <i class="fa fa-hospital-o fa-3x" aria-hidden="true" style="color:#0062cc"></i>
                 <br>
               <h3 style="margin-top: 10%">Elder Login</h3><br>
-              <form class="form-group" method="POST" action="elder_login.php">
+              <form class="form-group" method="POST" action="func.php">
                 <div class="row" style="margin-top: 10%">
-                  <div class="col-md-4"><label>Elder ID: </label></div>
-                  <div class="col-md-8"><input type="text" name="elder_id" class="form-control" placeholder="Enter Elder ID" required/></div><br><br>
+                  <div class="col-md-4"><label>Email-ID: </label></div>
+                  <div class="col-md-8"><input type="text" name="email" class="form-control" placeholder="enter email ID" required/></div><br><br>
                   <div class="col-md-4" style="margin-top: 8%"><label>Password: </label></div>
-                  <div class="col-md-8" style="margin-top: 8%"><input type="password" class="form-control" name="password" placeholder="Enter password" required/></div><br><br><br>
+                  <div class="col-md-8" style="margin-top: 8%"><input type="password" class="form-control" name="password2" placeholder="enter password" required/></div><br><br><br>
                 </div>
                 <div class="row">
                  <div class="col-md-4"  style="padding-left: 160px;margin-top: 10%">
-                    <center><input type="submit" id="inputbtn" name="elder_login" value="Login" class="btn btn-primary"></center></div>
+                    <center><input type="submit" id="inputbtn" name="patsub" value="Login" class="btn btn-primary"></center></div>           
+                 <!--  <div class="col-md-8" style="margin-top: 10%">
+                    <a href="index.php" class="btn btn-primary">Back</a></div> -->
                 </div>
               </form>
             </center>
@@ -159,8 +104,6 @@ include("header.php");
 
       </div>
     </div>
-
-
 
 
 

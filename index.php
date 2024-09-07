@@ -204,8 +204,8 @@
                 <a href="services.html" class="link" data-slide="1">Get To Know Us</a>
         
               
-                <a href="signup.php" class="link" data-slide="2">Contact Us</a>
-                <a href="#gallery" class="link" data-slide="3">See Our Gallery</a>
+                <a href="contact.html" class="link" data-slide="2">Contact Us</a>
+                <a href="gallery.php" class="link" data-slide="3">See Our Gallery</a>
             </div>
         </div>
         <div class="slides">

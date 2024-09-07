@@ -81,22 +81,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="margin-right: 40px;">
+                <li class="nav-item" style="margin-right: 20px;">
                     <a class="nav-link js-scroll-trigger" href="index.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
                         <h6>HOME</h6>
                     </a>
                 </li>
-                <li class="nav-item" style="margin-right: 40px;">
+                <li class="nav-item" style="margin-right: 20px;">
+                    <a class="nav-link js-scroll-trigger" href="index1.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
+                        <h6>SIGN UP</h6>
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-right: 20px;">
                     <a class="nav-link js-scroll-trigger" href="services.html" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
                         <h6>ABOUT US</h6>
                     </a>
                 </li>
-                <li class="nav-item" style="margin-right: 40px;">
-                    <a class="nav-link js-scroll-trigger" href="signup.php" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
-                        <h6>SIGN UP</h6>
-                    </a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 20px;">
                     <a class="nav-link js-scroll-trigger" href="contact.html" style="color: white; font-family: 'IBM Plex Sans', sans-serif;">
                         <h6>CONTACT</h6>
                     </a>

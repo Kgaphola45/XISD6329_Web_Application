@@ -114,7 +114,7 @@
 <div class="container welcome-section">
    <br>
    
-   <h1>Welcome to Golden Years Old Age Home</h1>
+   <h1></h1>
    
     
     </div>
@@ -142,7 +142,7 @@
 .hero-content h1 {
     margin-bottom: 30px;
     font-weight: 800;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -199,7 +199,7 @@
          
 <div class="hero-container">
         <div class="hero-content">
-            <h1>Golden Years Old Age Home</h1>
+            <h1>Welcome to Golden Years Old Age Home</h1>
            <div class="links">
                 <a href="services.html" class="link" data-slide="1">Get To Know Us</a>
         
@@ -232,8 +232,8 @@
         .hr {
             border: 55;
             height: 2px;
-            background: #333; /* Dark gray color for the line */
-            margin: 20px 0; /* Spacing around the line */
+            background: #333; 
+            margin: 20px 0; 
         }
     </style>
 

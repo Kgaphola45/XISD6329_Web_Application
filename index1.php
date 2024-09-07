@@ -272,6 +272,7 @@
                                         </label>
                             
                                         </div>
+                                    
                                 </div>
                             </div> <h3>Who's Registering for Elder: </h3>
                            
@@ -319,9 +320,11 @@
                                             <span>Female </span> 
                                         </label>
                                    <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>  </div>
+                              
                                 </div>
+                          
                         </div>
-                   
+                        <a href="index1.php">Already have an account?</a>
                        
                     </form>
                     </div> </div> 
@@ -361,7 +364,10 @@
                                     <input type="password" class="form-control" placeholder="Password *" name="password2" required/>
                                 </div>
                                 <input type="submit" class="btnRegister" name="adsub" value="Login"/>
+                                
                             </div>
+
+                            
                         </div>
                     </form>
                 </div>

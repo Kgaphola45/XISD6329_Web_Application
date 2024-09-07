@@ -123,40 +123,49 @@
 <style>
 .hero-container {
     position: relative;
-    height: 70vh;
+    height: 78vh;
     overflow: hidden;
     background-color:#4376de;
 }
 
 .hero-content {
     position: absolute;
-    top: 80%;
-    left: 16%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     z-index: 2;
+    width: 100%;
 }
 
 .hero-content h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .links a {
     color: white;
-    
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 10px;
+    padding: 12px 24px;
+    margin: 10px;
     border: 2px solid #fff;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
 }
 
 .links a:hover {
     background-color: #fff;
-    left: 100;
-    color: #000;
+    color: #4376de;
 }
 
 .slides {
@@ -201,13 +210,14 @@
         </div>
         <div class="slides">
             <div class="slide" id="slide-1">
-                <img src="images/Home/retiree-7390179_1280.jpg" alt="About Us">
+                <img src="images/Home/Hero_Section/f1.jpg" alt="About Us">
             </div>
             <div class="slide" id="slide-2">
-                <img src="images/Home/make-a-phone-call-5190643_1280.jpg" alt="Contact Us">
+                <img src="images/Home/Hero_Section/f3.jpg" alt="Contact Us">
             </div>
             <div class="slide" id="slide-3">
-                <img src="images/Home/skin-3358873_1280.jpg" alt="Gallery">
+                <img src="images/Home/Hero_Section/f4.jpg" alt="Gallery">
+                
             </div>
         </div>
     </div>

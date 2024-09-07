@@ -24,7 +24,7 @@ if(isset($_POST['app-submit']))
   $email = $_SESSION['email'];
   $contact = $_SESSION['contact'];
   $doctor = $_POST['doctor'];
-  $donationFee = $_POST['donationFee']; // New line to get the donation fee
+  $donationFee = $_POST['donationFee']; 
   $appdate = $_POST['appdate'];
   $apptime = $_POST['apptime'];
   

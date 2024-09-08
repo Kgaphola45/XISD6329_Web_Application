@@ -126,7 +126,6 @@ INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
 --
 -- Table  for table `Elderly`
 --
-
 CREATE TABLE `patreg` (
   `pid` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `fname` varchar(20) NOT NULL,
@@ -146,17 +145,43 @@ CREATE TABLE `patreg` (
   `doctor_contact` varchar(15) DEFAULT NULL,
   `special_needs` text DEFAULT NULL,
   `password` varchar(30) NOT NULL,
-  `cpassword` varchar(30) NOT NULL
+  `cpassword` varchar(30) NOT NULL,
+  `national_id` varchar(20) NOT NULL,
+  `admission_date` date NOT NULL,
+  `preferred_language` varchar(50) DEFAULT NULL,
+  `emergency_contact_relation` varchar(50) DEFAULT NULL,
+  `dietary_requirements` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
--- Dumping data for table `patreg`
---
 
-INSERT INTO `patreg` (`fname`, `lname`, `dob`, `gender`, `address`, `contact`, `email`, `emergency_contact_name`, `emergency_contact_relationship`, `emergency_contact_number`, `medical_conditions`, `allergies`, `current_medications`, `primary_doctor_name`, `doctor_contact`, `special_needs`, `password`, `cpassword`)
-VALUES
-('Thabo', 'Molefe', '1954-06-12', 'Male', '123 Main Street, Johannesburg, Gauteng', '0723456789', 'thabo.m@gmail.com', 'Lerato Molefe', 'Wife', '0734567890', 'Hypertension', 'Penicillin', 'Lisinopril', 'Dr. Mkhize', '0745678901', 'None', 'password123', 'password123'),
-('Sibongile', 'Nkosi', '1962-11-23', 'Female', '456 Oak Avenue, Durban, KwaZulu-Natal', '0823456789', 'sibongile.nk@egmail.com', 'Andile Nkosi', 'Son', '0834567890', 'Diabetes', 'None', 'Metformin', 'Dr. Khumalo', '0845678901', 'Wheelchair accessibility', 'securepass', 'securepass'),
-('Mandla', 'Zulu', '1949-04-30', 'Male', '789 Pine Road, Cape Town, Western Cape', '0623456789', 'mandla.z@egmail.com', 'Nomvula Zulu', 'Daughter', '0634567890', 'Arthritis', 'None', 'Ibuprofen', 'Dr. Naidoo', '0645678901', 'Hearing aid required', 'mypassword', 'mypassword');
+
+INSERT INTO `patreg` (
+  `fname`, `lname`, `dob`, `gender`, `address`, `contact`, `email`, 
+  `emergency_contact_name`, `emergency_contact_relationship`, `emergency_contact_number`, 
+  `medical_conditions`, `allergies`, `current_medications`, `primary_doctor_name`, `doctor_contact`, 
+  `special_needs`, `password`, `cpassword`, `national_id`, `admission_date`, 
+  `preferred_language`, `emergency_contact_relation`, `dietary_requirements`
+) 
+VALUES 
+('Thabo', 'Mokoena', '1952-04-17', 'Male', '123 Mandela St, Johannesburg', '0721234567', 'thabo.mokoena@gmail.com',
+ 'Nokuthula Mokoena', 'Daughter', '0732345678', 'Diabetes', 'None', 'Insulin', 'Dr. Smith', '0123456789',
+ 'Wheelchair Access', 'password123', 'password123', '7804175009083', '2023-05-14', 'English', 'Daughter', 'Low sugar diet'),
+ 
+('Zanele', 'Nkosi', '1948-10-02', 'Female', '456 Vilakazi St, Soweto', '0739876543', 'zanele.nkosi@gmail.com',
+ 'Nomvula Nkosi', 'Granddaughter', '0747654321', 'Hypertension', 'None', 'Lisinopril', 'Dr. Van der Merwe', '0112233445',
+ 'Hearing Aid', 'password456', 'password456', '4810021234085', '2023-08-01', 'Zulu', 'Granddaughter', 'Low sodium diet'),
+ 
+('Bongani', 'Sithole', '1945-01-25', 'Male', '789 Mbeki Ave, Durban', '0823456789', 'bongani.sithole@gmail.com',
+ 'Lerato Sithole', 'Son', '0834567890', 'Arthritis', 'Peanuts', 'Ibuprofen', 'Dr. Naidoo', '0212345678',
+ 'Assistance with walking', 'password789', 'password789', '4501255091082', '2023-04-21', 'English', 'Son', 'Vegetarian diet'),
+ 
+('Nomsa', 'Dlamini', '1955-12-10', 'Female', '321 Khumalo Rd, Pretoria', '0826543210', 'nomsa.dlamini@gmail.com',
+ 'Thandi Dlamini', 'Niece', '0839876543', 'Asthma', 'Pollen', 'Inhaler', 'Dr. Jacobs', '0119876543',
+ 'Oxygen assistance', 'password321', 'password321', '5512100987083', '2023-06-30', 'Sotho', 'Niece', 'Gluten-free diet'),
+ 
+('Sipho', 'Ngubane', '1950-07-30', 'Male', '111 Mandela Dr, Cape Town', '0835678912', 'sipho.ngubane@gmail.com',
+ 'Nandi Ngubane', 'Wife', '0846789123', 'Heart Disease', 'Shellfish', 'Aspirin', 'Dr. Patel', '0128765432',
+ '24/7 Medical Supervision', 'password654', 'password654', '5007300995081', '2023-07-12', 'Xhosa', 'Wife', 'Low cholesterol diet');
+
 
 
 -- --------------------------------------------------------

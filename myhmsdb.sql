@@ -200,12 +200,17 @@ CREATE TABLE `Relative_ToElderly` (
     `relation` VARCHAR(255) NOT NULL,
     `contact` VARCHAR(15) NOT NULL,
     `emergency_contact` VARCHAR(15) NOT NULL,
-    `additional_notes` TEXT DEFAULT NULL
+    `additional_notes` TEXT DEFAULT NULL,
+    `relative_preferred_language` VARCHAR(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-INSERT INTO `Relative_ToElderly` (`first_name`, `last_name`, `gender`, `email`, `physical_address`, `id_number`, `relation`, `contact`, `emergency_contact`, `additional_notes`)
-VALUES
-('Lerato', 'Molefe', 'Female', 'lerato.m@gmail.com', '123 Main Street, Johannesburg, Gauteng', '8001011234567', 'Wife', '0734567890', '0723456789', 'No additional notes'),
-('Andile', 'Nkosi', 'Male', 'andile.nk@gmail.com', '456 Oak Avenue, Durban, KwaZulu-Natal', '8102022345678', 'Son', '0834567890', '0823456789', 'Allergic to shellfish'),
-('Nomvula', 'Zulu', 'Female', 'nomvula.z@gmail.com', '789 Pine Road, Cape Town, Western Cape', '7903033456789', 'Daughter', '0634567890', '0623456789', 'Primary caregiver');
+INSERT INTO `Relative_ToElderly` (
+    `first_name`, `last_name`, `gender`, `email`, `physical_address`, 
+    `id_number`, `relation`, `contact`, `emergency_contact`, `additional_notes`, 
+    `relative_preferred_language`
+) VALUES
+    ('Thabo', 'Mokoena', 'Male', 'thabo.mokoena@gmail.com', '123 Main Street, Pretoria', '9001015009087', 'Brother', '0821234567', '0827654321', 'N/A', 'Zulu'),
+    ('Lindiwe', 'Nkosi', 'Female', 'lindiwe.nkosi@gmail.com', '456 Elm Street, Johannesburg', '8706120123456', 'Sister', '0832345678', '0838765432', 'N/A', 'Sesotho'),
+    ('Sipho', 'Dlamini', 'Male', 'sipho.dlamini@gmail.com', '789 Oak Avenue, Durban', '6709051234567', 'Cousin', '0743456789', '0749876543', 'N/A', 'Xhosa'),
+    ('Zanele', 'Khumalo', 'Female', 'zanele.khumalo@gmail.com', '321 Pine Road, Cape Town', '9503115432108', 'Daughter', '0765432109', '0769876543', 'N/A', 'Afrikaans'),
+    ('Jabulani', 'Sibeko', 'Male', 'jabulani.sibeko@gmail.com', '654 Maple Drive, Bloemfontein', '8007056789012', 'Uncle', '0712345678', '0718765432', 'N/A', 'Setswana');

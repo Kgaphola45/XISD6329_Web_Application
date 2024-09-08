@@ -223,6 +223,22 @@
                                 <div class="form-group">
                                     <input type="date" class="form-control" placeholder="Date of Birth *" name="dob" required/>
                                 </div>
+
+                                <div class="form-group">
+        <input type="text" class="form-control" placeholder="National ID Number *" name="national_id" required/>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" placeholder="Date of Admission *" name="admission_date" required/>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Preferred Language *" name="preferred_language" required/>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Emergency Contact Relation *" name="emergency_contact_relation" required/>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" placeholder="Dietary Requirements" name="dietary_requirements"></textarea>
+    </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Address *" name="address" required/>
                                 </div>
@@ -288,6 +304,9 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Email *" name="relative_email" required/>
                                 </div>
+                                <div class="form-group">
+        <input type="text" class="form-control" placeholder="Preferred Language *" name="relative_preferred_language" required/>
+    </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Physical Address *" name="relative_physical_address" required/>
                                 </div>

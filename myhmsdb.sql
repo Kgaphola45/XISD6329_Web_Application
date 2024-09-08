@@ -109,14 +109,17 @@ CREATE TABLE `doctb` (
 --
 
 INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
-('ashok', 'ashok123', 'ashok@gmail.com', 'General', 500),
-('arun', 'arun123', 'arun@gmail.com', 'Cardiologist', 600),
-('Dinesh', 'dinesh123', 'dinesh@gmail.com', 'General', 700),
-('Ganesh', 'ganesh123', 'ganesh@gmail.com', 'Pediatrician', 550),
-('Kumar', 'kumar123', 'kumar@gmail.com', 'Pediatrician', 800),
-('Amit', 'amit123', 'amit@gmail.com', 'Cardiologist', 1000),
-('Abbis', 'abbis123', 'abbis@gmail.com', 'Neurologist', 1500),
-('Tiwary', 'tiwary123', 'tiwary@gmail.com', 'Pediatrician', 450);
+('ThandoM', 'pass123', 'thando.m@goldenyears.com', 'Elderly Care Specialist', 500),
+('NomsaD', 'securePass!', 'nomsa.d@goldenyears.com', 'Geriatric Nurse', 450),
+('SiyandaK', 'Siyanda456!', 'siyanda.k@goldenyears.com', 'Alzheimer’s Specialist', 600),
+('LeratoP', 'lerato789', 'lerato.p@goldenyears.com', 'Dementia Caregiver', 520),
+('MandlaS', 'mandla321!', 'mandla.s@goldenyears.com', 'Palliative Care', 700),
+('BongiN', 'Bongi2023', 'bongi.n@goldenyears.com', 'Physical Therapist', 480),
+('ZandileT', 'ZandiStrong!', 'zandile.t@goldenyears.com', 'Occupational Therapist', 550),
+('KhethiweR', 'khethiwe#2023', 'khethiwe.r@goldenyears.com', 'Psychiatric Nurse', 620),
+('SibusisoV', 'Sibu@123', 'sibusiso.v@goldenyears.com', 'Nutritional Consultant', 460),
+('NokuthulaB', 'nokuHealth!', 'nokuthula.b@goldenyears.com', 'Pain Management Specialist', 580);
+
 
 -- --------------------------------------------------------
 

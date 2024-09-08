@@ -155,7 +155,7 @@ if(isset($_GET['cancel']))
                     <th scope="col">Appointment Time</th>
                     <th scope="col">Current Status</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Prescribe</th>
+                    <th scope="col">Problems</th>
 
                   </tr>
                 </thead>
@@ -215,7 +215,7 @@ if(isset($_GET['cancel']))
                         { ?>
 
                         <a href="prescribe.php?pid=<?php echo $row['pid']?>&ID=<?php echo $row['ID']?>&fname=<?php echo $row['fname']?>&lname=<?php echo $row['lname']?>&appdate=<?php echo $row['appdate']?>&apptime=<?php echo $row['apptime']?>"
-                        tooltip-placement="top" tooltip="Remove" title="prescribe">
+                        tooltip-placement="top" tooltip="Remove" title="problem">
                         <button class="btn btn-success">Prescibe</button></a>
                         <?php } else {
 
@@ -248,7 +248,7 @@ if(isset($_GET['cancel']))
                     <th scope="col">Appointment Time</th>
                     <th scope="col">Disease</th>
                     <th scope="col">Allergy</th>
-                    <th scope="col">Prescribe</th>
+                    <th scope="col">Problem</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -221,15 +221,20 @@
                                     <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" placeholder="Date of Birth *" name="dob" required/>
-                                </div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" class="form-control" name="dob" required/>
+    <small class="form-text text-muted">Please enter your date of birth.</small>
+</div>
+
 
                                 <div class="form-group">
         <input type="text" class="form-control" placeholder="National ID Number *" name="national_id" required/>
     </div>
     <div class="form-group">
-        <input type="date" class="form-control" placeholder="Date of Admission *" name="admission_date" required/>
-    </div>
+    <input type="date" id="admission_date" class="form-control" name="admission_date" required/>
+    <small class="form-text text-muted">Please select the date of the admission.</small>
+</div>
+
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Preferred Language *" name="preferred_language" required/>
     </div>

@@ -41,7 +41,7 @@ if(isset($_POST['update_data']))
 
 function display_specs() {
   global $con;
-  $query="select distinct(spec) from doctb";
+  $query="select distinct(spec) from carec";
   $result=mysqli_query($con,$query);
   while($row=mysqli_fetch_array($result))
   {
@@ -53,7 +53,7 @@ function display_specs() {
 function display_docs()
 {
  global $con;
- $query = "select * from doctb";
+ $query = "select * from carec";
  $result = mysqli_query($con,$query);
  while( $row = mysqli_fetch_array($result) )
  {
@@ -77,10 +77,10 @@ function display_docs()
 // }
 
 
-if(isset($_POST['doc_sub']))
+if(isset($_POST['Nur_sub']))
 {
  $username=$_POST['username'];
- $query="insert into doctb(username)values('$username')";
+ $query="insert into carec(username)values('$username')";
  $result=mysqli_query($con,$query);
  if($result)
   header("Location:adddoc.php");

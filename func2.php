@@ -14,8 +14,8 @@ if (isset($_POST['patsub1'])) {
     $medical_conditions = $_POST['medical_conditions'];
     $allergies = $_POST['allergies'];
     $current_medications = $_POST['current_medications'];
-    $primary_doctor_name = $_POST['primary_doctor_name'];
-    $doctor_contact = $_POST['doctor_contact'];
+    $Care_Coordinator = $_POST['Care Coordinator'];
+    $Nurse_contact = $_POST['Nurse_contact'];
     $special_needs = $_POST['special_needs'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
@@ -34,8 +34,8 @@ if (isset($_POST['patsub1'])) {
 
     if ($password == $cpassword) {
         // Insert elder data
-        $query = "INSERT INTO patreg (fname, lname, dob, gender, address, contact, email, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) 
-                  VALUES ('$fname', '$lname', '$dob', '$gender', '$address', '$contact', '$email', '$medical_conditions', '$allergies', '$current_medications', '$primary_doctor_name', '$doctor_contact', '$special_needs', '$password', '$cpassword')";
+        $query = "INSERT INTO patreg (fname, lname, dob, gender, address, contact, email, medical_conditions, allergies, current_medications, Care Coordinator, doctor_contact, special_needs, password, cpassword) 
+                  VALUES ('$fname', '$lname', '$dob', '$gender', '$address', '$contact', '$email', '$medical_conditions', '$allergies', '$current_medications', '$Care_Coordinator', '$Nurse_contact', '$special_needs', '$password', '$cpassword')";
         $result = mysqli_query($con, $query);
 
         if ($result) {

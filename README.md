@@ -32,7 +32,7 @@ This project is a web-based management system for Golden Years Old Age Home. It 
 - `admin-panel1.php`: The main administrative interface
 - `newfunc.php`: Contains additional functions 
 - Database tables:
-  - `doctb`: Stores caregiver information
+  - `carec`: Stores caregiver information
   - `patreg`: Stores elderly resident information
   - `appointmenttb`: Manages appointments
   - `prestb`: Stores prescription information

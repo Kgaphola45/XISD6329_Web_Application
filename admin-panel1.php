@@ -4,9 +4,9 @@ $con=mysqli_connect("localhost","root","","myhmsdb");
 
 include('newfunc.php');
 
-if(isset($_POST['docsub']))
+if(isset($_POST['Nursub']))
 {
-  $doctor=$_POST['doctor'];
+  $Nurse=$_POST['Nurse'];
   $dpassword=$_POST['dpassword'];
   $demail=$_POST['demail'];
   $spec=$_POST['special'];
@@ -50,8 +50,8 @@ if(isset($_POST['addelderly']))
   $emedical_conditions = $_POST['emedical_conditions'];
   $eallergies = $_POST['eallergies'];
   $ecurrent_medications = $_POST['ecurrent_medications'];
-  $eprimary_doctor_name = $_POST['eprimary_doctor_name'];
-  $edoctor_contact = $_POST['edoctor_contact'];
+  $ecare_coordinator = $_POST['ecare_coordinator'];
+  $enurse_contact = $_POST['enurse_contact'];
   $especial_needs = $_POST['especial_needs'];
   $epassword = $_POST['epassword'];
   $ecpassword = $_POST['ecpassword'];
@@ -68,7 +68,7 @@ if(isset($_POST['addelderly']))
   $remergency_contact = $_POST['remergency_contact'];
   $radditional_notes = $_POST['radditional_notes'];
 
-  $query1 = "INSERT INTO patreg(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$eprimary_doctor_name', '$edoctor_contact', '$especial_needs', '$epassword', '$ecpassword')";
+  $query1 = "INSERT INTO patreg(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, care_coordinator, nurse_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$ecare_coordinator', '$enurse_contact', '$especial_needs', '$epassword', '$ecpassword')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, gender, email, physical_address, id_number, relation, contact, emergency_contact, additional_notes) VALUES('$rfname', '$rlname', '$rgender', '$remail', '$rphysical_address', '$rid_number', '$rrelation', '$rcontact', '$remergency_contact', '$radditional_notes')";
 
   $result1 = mysqli_query($con, $query1);
@@ -305,8 +305,8 @@ if(isset($_POST['addelderly']))
               <div class="col-md-8">
       <form class="form-group" action="doctorsearch.php" method="post">
         <div class="row">
-        <div class="col-md-10"><input type="text" name="doctor_contact" placeholder="Enter Email ID" class = "form-control"></div>
-        <div class="col-md-2"><input type="submit" name="doctor_search_submit" class="btn btn-primary" value="Search"></div></div>
+        <div class="col-md-10"><input type="text" name="Nurse_contact" placeholder="Enter Email" class = "form-control"></div>
+        <div class="col-md-2"><input type="submit" name="Nurse_search_submit" class="btn btn-primary" value="Search"></div></div>
       </form>
     </div>
               <table class="table table-hover">
@@ -462,7 +462,7 @@ if(isset($_POST['addelderly']))
                     $query = "select * from prestb";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
-                      $doctor = $row['doctor'];
+                      $Nurse = $row['Nurse'];
                       $pid = $row['pid'];
                       $ID = $row['ID'];
                       $fname = $row['fname'];
@@ -475,7 +475,7 @@ if(isset($_POST['addelderly']))
 
                       
                       echo "<tr>
-                        <td>$doctor</td>
+                        <td>$Nurse</td>
                         <td>$pid</td>
                         <td>$ID</td>
                         <td>$fname</td>
@@ -544,21 +544,21 @@ if(isset($_POST['addelderly']))
                         <td><?php echo $row['gender'];?></td>
                         <td><?php echo $row['email'];?></td>
                         <td><?php echo $row['contact'];?></td>
-                        <td><?php echo $row['doctor'];?></td>
+                        <td><?php echo $row['Nurse'];?></td>
                         <td><?php echo $row['donationFee'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         <td>
-                    <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                    <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                     {
                       echo "Active";
                     }
-                    if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+                    if(($row['userStatus']==0) && ($row['NurseStatus']==1))  
                     {
                       echo "Cancelled by Elders";
                     }
 
-                    if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+                    if(($row['userStatus']==1) && ($row['NurseStatus']==0))  
                     {
                       echo "Cancelled by Caregiver";
                     }
@@ -576,7 +576,7 @@ if(isset($_POST['addelderly']))
         <form class="form-group" method="post" action="admin-panel1.php">
           <div class="row">
                   <div class="col-md-4"><label>Caregiver Name:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control" name="doctor" onkeydown="return alphaOnly(event);" required></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control" name="Nurse" onkeydown="return alphaOnly(event);" required></div><br><br>
                   <div class="col-md-4"><label>Specialization:</label></div>
                   <div class="col-md-8">
                    <select name="special" class="form-control" id="special" required="required">
@@ -700,10 +700,10 @@ if(isset($_POST['addelderly']))
             <div class="col-md-8"><textarea class="form-control" name="eallergies"></textarea></div><br><br>
             <div class="col-md-4"><label>Current Medications:</label></div>
             <div class="col-md-8"><textarea class="form-control" name="ecurrent_medications"></textarea></div><br><br>
-            <div class="col-md-4"><label>Primary Doctor Name:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="eprimary_doctor_name"></div><br><br>
-            <div class="col-md-4"><label>Doctor Contact:</label></div>
-            <div class="col-md-8"><input type="text" class="form-control" name="edoctor_contact"></div><br><br>
+            <div class="col-md-4"><label>Care Coordinator Name:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="ecare_coordinator"></div><br><br>
+            <div class="col-md-4"><label>Nurse Contact:</label></div>
+            <div class="col-md-8"><input type="text" class="form-control" name="enurse_contact"></div><br><br>
             <div class="col-md-4"><label>Special Needs:</label></div>
             <div class="col-md-8"><textarea class="form-control" name="especial_needs"></textarea></div><br><br>
             <div class="col-md-4"><label>Password:</label></div>

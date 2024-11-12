@@ -265,10 +265,10 @@
                                     <textarea class="form-control" placeholder="Current Medications" name="current_medications"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Primary Doctor Name" name="primary_doctor_name"/>
+                                    <input type="text" class="form-control" placeholder="Caregiver Name" name="primary_doctor_name"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Doctor Contact" name="doctor_contact"/>
+                                    <input type="tel" class="form-control" placeholder="Nurse  Contact" name="doctor_contact"/>
                                 </div>
                                 <div class="form-group">
                                     <textarea class="form-control" placeholder="Special Needs" name="special_needs"></textarea>

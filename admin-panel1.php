@@ -579,10 +579,10 @@ if(isset($_POST['addelderly']))
                   <div class="col-md-8">
                    <select name="special" class="form-control" id="special" required="required">
                       <option value="head" name="spec" disabled selected>Select Specialization</option>
-                      <option value="Geriatric Care" name="spec">Mental Health Care</option>
+                      <option value="Rehabilitation Assistance" name="spec">Rehabilitation Assistance</option>
                       <option value="Physical Therapy" name="spec">Physical Therapy</option>
                       <option value="Occupational Therapy" name="spec">Occupational Therapy</option>
-                      <option value="Mental Health Care" name="spec">Mental Health Care</option>
+                      <option value="Mobility Assistance:" name="spec">Mobility Assistance</option>
                     </select>
                     </div><br><br>
                   <div class="col-md-4"><label>Email ID:</label></div>

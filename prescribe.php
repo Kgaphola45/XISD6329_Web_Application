@@ -7,7 +7,7 @@ $appdate='';
 $apptime='';
 $fname = '';
 $lname= '';
-$doctor = isset($_SESSION['dname']) ? $_SESSION['dname'] : '';
+$Nurse = isset($_SESSION['dname']) ? $_SESSION['dname'] : '';
 if(isset($_GET['pid']) && isset($_GET['ID']) && ($_GET['appdate']) && isset($_GET['apptime']) && isset($_GET['fname']) && isset($_GET['lname'])) {
 $pid = $_GET['pid'];
   $ID = $_GET['ID'];

@@ -39,7 +39,7 @@ INSERT INTO `admintb` (`username`, `password`) VALUES
 
 --
 -- Table structure for table `appointmenttb`
---
+-- changed tabel colume "Doctor" to "Nurse" 
 
 CREATE TABLE `appointmenttb` (
   `pid` int(11) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `appointmenttb` (
   `gender` varchar(10) NOT NULL,
   `email` varchar(30) NOT NULL,
   `contact` varchar(10) NOT NULL,
-  `doctor` varchar(30) NOT NULL,
+  `Nurse` varchar(30) NOT NULL,
   `docFees` int(5) NOT NULL,
   `appdate` date NOT NULL,
   `apptime` time NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `appointmenttb` (
 -- Dumping data for table `appointmenttb`
 --
 
-INSERT INTO `appointmenttb` (`pid`, `ID`, `fname`, `lname`, `gender`, `email`, `contact`, `doctor`, `docFees`, `appdate`, `apptime`, `userStatus`, `doctorStatus`)
+INSERT INTO `appointmenttb` (`pid`, `ID`, `fname`, `lname`, `gender`, `email`, `contact`, `Nurse`, `docFees`, `appdate`, `apptime`, `userStatus`, `doctorStatus`)
 VALUES
 (1, 1001, 'Thabo', 'Molefe', 'Male', 'thabo.molefe@gmail.com', '0723456789', 'Dr. Mkhize', 500, '2024-09-10', '09:30:00', 1, 1),
 (2, 1002, 'Sibongile', 'Nkosi', 'Female', 'sibongile.nkosi@gmail.com', '0734567890', 'Dr. Khumalo', 550, '2024-09-12', '11:00:00', 1, 0),
@@ -93,22 +93,22 @@ VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctb`
+-- Table structure for table `care_coordinator`
 --
 
-CREATE TABLE `doctb` (
+CREATE TABLE `carec` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `spec` varchar(50) NOT NULL,
-  `docFees` int(10) NOT NULL
+  `donation` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctb`
 --
 
-INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
+INSERT INTO `carec` (`username`, `password`, `email`, `spec`, `donation`) VALUES
 ('ThandoM', 'pass123', 'thando.m@goldenyears.com', 'Elderly Care Specialist', 500),
 ('NomsaD', 'securePass!', 'nomsa.d@goldenyears.com', 'Geriatric Nurse', 450),
 ('SiyandaK', 'Siyanda456!', 'siyanda.k@goldenyears.com', 'Alzheimer’s Specialist', 600),
@@ -125,8 +125,8 @@ INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
 
 --
 -- Table  for table `Elderly`
---
-CREATE TABLE `patreg` (
+--Cahnged Column " Primary_doctor_name" Doctor_Cotact" to Care_Coordinator" and "Nurse_Conatact"
+CREATE TABLE `Elderly` (
   `pid` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
@@ -135,14 +135,14 @@ CREATE TABLE `patreg` (
   `address` varchar(255) NOT NULL,
   `contact` varchar(15) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `emergency_contact_name` varchar(50) NOT NULL,
+  `emergency_contact_name` varchar(50) NOT NULL, 
   `emergency_contact_relationship` varchar(50) NOT NULL,
   `emergency_contact_number` varchar(15) NOT NULL,
   `medical_conditions` text DEFAULT NULL,
   `allergies` text DEFAULT NULL,
   `current_medications` text DEFAULT NULL,
-  `primary_doctor_name` varchar(50) DEFAULT NULL,
-  `doctor_contact` varchar(15) DEFAULT NULL,
+  `Care_Coordinator` varchar(50) DEFAULT NULL,
+  `Nurse_contact` varchar(15) DEFAULT NULL,
   `special_needs` text DEFAULT NULL,
   `password` varchar(30) NOT NULL,
   `cpassword` varchar(30) NOT NULL,
@@ -154,10 +154,10 @@ CREATE TABLE `patreg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `patreg` (
+INSERT INTO `Elderly` (
   `fname`, `lname`, `dob`, `gender`, `address`, `contact`, `email`, 
   `emergency_contact_name`, `emergency_contact_relationship`, `emergency_contact_number`, 
-  `medical_conditions`, `allergies`, `current_medications`, `primary_doctor_name`, `doctor_contact`, 
+  `medical_conditions`, `allergies`, `current_medications`, `Care_Coordinator`, `Nurse_contact`, 
   `special_needs`, `password`, `cpassword`, `national_id`, `admission_date`, 
   `preferred_language`, `emergency_contact_relation`, `dietary_requirements`
 ) 
@@ -191,7 +191,7 @@ VALUES
 --
 
 CREATE TABLE `prestb` (
-  `doctor` varchar(50) NOT NULL,
+  `Nurse` varchar(50) NOT NULL,
   `pid` int(11) NOT NULL,
   `ID` int(11) NOT NULL,
   `fname` varchar(50) NOT NULL,
@@ -207,7 +207,7 @@ CREATE TABLE `prestb` (
 -- Dumping data for table `prestb`
 --
 
-INSERT INTO `prestb` (`doctor`, `pid`, `ID`, `fname`, `lname`, `appdate`, `apptime`, `disease`, `allergy`, `prescription`) VALUES
+INSERT INTO `prestb` (`Nurse`, `pid`, `ID`, `fname`, `lname`, `appdate`, `apptime`, `disease`, `allergy`, `prescription`) VALUES
 ('Dinesh', 4, 11, 'Kishan', 'Lal', '2020-03-27', '15:00:00', 'Cough', 'Nothing', 'Just take a teaspoon of Benadryl every night'),
 ('Ganesh', 2, 8, 'Alia', 'Bhatt', '2020-03-21', '10:00:00', 'Severe Fever', 'Nothing', 'Take bed rest'),
 ('Kumar', 9, 12, 'William', 'Blake', '2020-03-26', '12:00:00', 'Sever fever', 'nothing', 'Paracetamol -> 1 every morning and night'),

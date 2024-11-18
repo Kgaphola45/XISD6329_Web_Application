@@ -2,7 +2,7 @@
 <?php 
 include('func1.php');
 $con=mysqli_connect("localhost","root","","myhmsdb");
-$doctor = $_SESSION['dname'];
+$Nurse = $_SESSION['Nname'];
 if(isset($_GET['cancel']))
   {
     $query=mysqli_query($con,"update appointmenttb set doctorStatus='0' where ID = '".$_GET['ID']."'");
@@ -163,8 +163,8 @@ if(isset($_GET['cancel']))
                   <?php 
                     $con=mysqli_connect("localhost","root","","myhmsdb");
                     global $con;
-                    $dname = $_SESSION['dname'];
-                    $query = "select pid,ID,fname,lname,gender,email,contact,appdate,apptime,userStatus,doctorStatus from appointmenttb where doctor='$dname';";
+                    $Nname = $_SESSION['Nname'];
+                    $query = "select pid,ID,fname,lname,gender,email,contact,appdate,apptime,userStatus,NurseStatus from appointmenttb where Nurse='$Nname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
                       ?>
@@ -179,23 +179,23 @@ if(isset($_GET['cancel']))
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         <td>
-                    <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                    <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                     {
                       echo "Active";
                     }
-                    if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+                    if(($row['userStatus']==0) && ($row['NurseStatus']==1))  
                     {
                       echo "Cancelled by Elders";
                     }
 
-                    if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+                    if(($row['userStatus']==1) && ($row['NurseStatus']==0))  
                     {
                       echo "Cancelled by You";
                     }
                         ?></td>
 
                      <td>
-                        <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                        <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                         { ?>
 
 													
@@ -211,7 +211,7 @@ if(isset($_GET['cancel']))
 
                         <td>
 
-                        <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                        <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                         { ?>
 
                         <a href="prescribe.php?pid=<?php echo $row['pid']?>&ID=<?php echo $row['ID']?>&fname=<?php echo $row['fname']?>&lname=<?php echo $row['lname']?>&appdate=<?php echo $row['appdate']?>&apptime=<?php echo $row['apptime']?>"
@@ -257,7 +257,7 @@ if(isset($_GET['cancel']))
                     $con=mysqli_connect("localhost","root","","myhmsdb");
                     global $con;
 
-                    $query = "select pid,fname,lname,ID,appdate,apptime,disease,allergy,prescription from prestb where doctor='$doctor';";
+                    $query = "select pid,fname,lname,ID,appdate,apptime,disease,allergy,prescription from prestb where doctor='$Nurse';";
                     
                     $result = mysqli_query($con,$query);
                     if(!$result){
@@ -324,7 +324,7 @@ if(isset($_GET['cancel']))
                         <td><?php echo $row['lname'];?></td>
                         <td><?php echo $row['email'];?></td>
                         <td><?php echo $row['contact'];?></td>
-                        <td><?php echo $row['doctor'];?></td>
+                        <td><?php echo $row['Nurse'];?></td>
                         <td><?php echo $row['donationFee'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
@@ -344,7 +344,7 @@ if(isset($_GET['cancel']))
         <form class="form-group" method="post" action="admin-panel1.php">
           <div class="row">
                   <div class="col-md-4"><label>Caregiver Name:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control" name="doctor" required></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control" name="Care_Coordinator" required></div><br><br>
                   <div class="col-md-4"><label>Password:</label></div>
                   <div class="col-md-8"><input type="password" class="form-control"  name="dpassword" required></div><br><br>
                   <div class="col-md-4"><label>Email ID:</label></div>

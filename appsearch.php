@@ -16,7 +16,7 @@ if(isset($_POST['app_search_submit']))
 	$query = "select * from appointmenttb where contact= '$contact';";
   $result = mysqli_query($con,$query);
   $row=mysqli_fetch_array($result);
-  if($row['fname']=="" & $row['lname']=="" & $row['email']=="" & $row['contact']=="" & $row['doctor']=="" & $row['donationFee']=="" & $row['appdate']=="" & $row['apptime']==""){
+  if($row['fname']=="" & $row['lname']=="" & $row['email']=="" & $row['contact']=="" & $row['Nurse']=="" & $row['donationFee']=="" & $row['appdate']=="" & $row['apptime']==""){
     echo "<script> alert('No entries found! Please enter valid details'); 
           window.location.href = 'admin-panel1.php#list-doc';</script>";
   }
@@ -45,20 +45,20 @@ if(isset($_POST['app_search_submit']))
           $lname = $row['lname'];
           $email = $row['email'];
           $contact = $row['contact'];
-          $doctor = $row['doctor'];
+          $Nurse = $row['Nurse'];
           $donationFee= $row['donationFee'];
           $appdate= $row['appdate'];
           $apptime = $row['apptime'];
-          if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+          if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                     {
                       $appstatus = "Active";
                     }
-                    if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+                    if(($row['userStatus']==0) && ($row['NurseStatus']==1))  
                     {
                       $appstatus = "Cancelled by You";
                     }
 
-                    if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+                    if(($row['userStatus']==1) && ($row['NurseStatus']==0))  
                     {
                       $appstatus = "Cancelled by Caregiver";
                     }
@@ -67,7 +67,7 @@ if(isset($_POST['app_search_submit']))
             <td>$lname</td>
             <td>$email</td>
             <td>$contact</td>
-            <td>$doctor</td>
+            <td>$Nurse</td>
             <td>$donationFee</td>
             <td>$appdate</td>
             <td>$apptime</td>

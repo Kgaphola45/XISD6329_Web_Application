@@ -9,7 +9,7 @@
 <body>
 <?php
 include("newfunc.php");
-if(isset($_POST['doctor_search_submit']))
+if(isset($_POST['Nurse_search_submit']))
 {
 	$contact=$_POST['doctor_contact'];
   $query = "select * from doctb where email= '$contact'";

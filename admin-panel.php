@@ -23,12 +23,12 @@ if(isset($_POST['app-submit']))
   $gender = $_SESSION['gender'];
   $email = $_SESSION['email'];
   $contact = $_SESSION['contact'];
-  $doctor = $_POST['doctor'];
+  $doctor = $_POST['Nurse'];
   $donationFee = $_POST['donationFee']; 
   $appdate = $_POST['appdate'];
   $apptime = $_POST['apptime'];
   
-  $query = "INSERT INTO appointmenttb (pid, fname, lname, gender, email, contact, doctor, docFees, appdate, apptime, userStatus, doctorStatus) 
+  $query = "INSERT INTO appointmenttb (pid, fname, lname, gender, email, contact, Nurse, docFees, appdate, apptime, userStatus, NurseStatus) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
   
   $stmt = mysqli_prepare($con, $query);
@@ -60,13 +60,13 @@ function generate_bill(){
   $con=mysqli_connect("localhost","root","","myhmsdb");
   $pid = $_SESSION['pid'];
   $output='';
-  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
+  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.Nurse,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
   while($row = mysqli_fetch_array($query)){
     $output .= '
     <label> Patient ID : </label>'.$row["pid"].'<br/><br/>
     <label> Appointment ID : </label>'.$row["ID"].'<br/><br/>
     <label> Patient Name : </label>'.$row["fname"].' '.$row["lname"].'<br/><br/>
-    <label> Care Giver : </label>'.$row["doctor"].'<br/><br/>
+    <label> Care Giver : </label>'.$row["Nurse"].'<br/><br/>
     <label> Appointment Date : </label>'.$row["appdate"].'<br/><br/>
     <label> Appointment Time : </label>'.$row["apptime"].'<br/><br/>
     <label> Disease : </label>'.$row["disease"].'<br/><br/>
@@ -270,7 +270,7 @@ function get_specs(){
                       document.getElementById('spec').onchange = function foo() {
                         let spec = this.value;   
                         console.log(spec)
-                        let docs = [...document.getElementById('doctor').options];
+                        let docs = [...document.getElementById('Nurse').options];
                         
                         docs.forEach((el, ind, arr)=>{
                           arr[ind].setAttribute("style","");
@@ -282,9 +282,9 @@ function get_specs(){
 
                   </script>
 
-              <div class="col-md-4"><label for="doctor">Care Giver:</label></div>
+              <div class="col-md-4"><label for="Nurse">Care Giver:</label></div>
                 <div class="col-md-8">
-                    <select name="doctor" class="form-control" id="doctor" required="required">
+                    <select name="Nurse" class="form-control" id="Nurse" required="required">
                       <option value="" disabled selected>Select Care giver</option>
                 
                       <?php display_docs(); ?>
@@ -293,7 +293,7 @@ function get_specs(){
 
 
                         <script>
-              document.getElementById('doctor').onchange = function updateFees(e) {
+              document.getElementById('Nurse').onchange = function updateFees(e) {
                 var selection = document.querySelector(`[value=${this.value}]`).getAttribute('data-value');
                 document.getElementById('docFees').value = selection;
               };
@@ -349,36 +349,36 @@ function get_specs(){
                     $con=mysqli_connect("localhost","root","","myhmsdb");
                     global $con;
 
-                    $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
+                    $query = "select ID,Nurse,docFees,appdate,apptime,userStatus,NurseStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
               
                   
                   ?>
                       <tr>
-                        <td><?php echo $row['doctor'];?></td>
+                        <td><?php echo $row['Nurse'];?></td>
                         <td><?php echo $row['docFees'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         
                           <td>
-                    <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                    <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                     {
                       echo "Active";
                     }
-                    if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+                    if(($row['userStatus']==0) && ($row['NurseStatus']==1))  
                     {
                       echo "Cancelled by You";
                     }
 
-                    if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+                    if(($row['userStatus']==1) && ($row['NurseStatus']==0))  
                     {
                       echo "Cancelled by Doctor";
                     }
                         ?></td>
 
                         <td>
-                        <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+                        <?php if(($row['userStatus']==1) && ($row['NurseStatus']==1))  
                         { ?>
 
 													
@@ -411,7 +411,7 @@ function get_specs(){
           <label>Care Giver name: </label>
           <input type="text" name="name" placeholder="Enter Care Giver name" class="form-control">
           <br>
-          <input type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
+          <input type="submit" name="Nur_sub" value="Add Nurse" class="btn btn-primary">
         </form>
       </div>
        <div class="tab-pane fade" id="list-attend" role="tabpanel" aria-labelledby="list-attend-list">...</div>

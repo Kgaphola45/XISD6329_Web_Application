@@ -52,13 +52,13 @@ if(isset($_POST['update_data']))
 // 	}
 // }
 
-if(isset($_POST['doc_sub']))
+if(isset($_POST['Nur_sub']))
 {
-	$doctor=$_POST['doctor'];
+	$Nurse=$_POST['Nurse'];
   $dpassword=$_POST['dpassword'];
   $demail=$_POST['demail'];
   $donationFee=$_POST['donationFee'];
-	$query="insert into doctb(username,password,email,donationFee)values('$doctor','$dpassword','$demail','$donationFee')";
+	$query="insert into doctb(username,password,email,donationFee)values('$Nurse','$dpassword','$demail','$donationFee')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:adddoc.php");

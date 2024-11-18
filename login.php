@@ -84,8 +84,8 @@ include("header.php");
               <h3 style="margin-top: 10%">Elder Login</h3><br>
               <form class="form-group" method="POST" action="func.php">
                 <div class="row" style="margin-top: 10%">
-                  <div class="col-md-4"><label>Email-ID: </label></div>
-                  <div class="col-md-8"><input type="text" name="email" class="form-control" placeholder="enter email ID" required/></div><br><br>
+                  <div class="col-md-4"><label>Email: </label></div>
+                  <div class="col-md-8"><input type="text" name="email" class="form-control" placeholder="enter Email" required/></div><br><br>
                   <div class="col-md-4" style="margin-top: 8%"><label>Password: </label></div>
                   <div class="col-md-8" style="margin-top: 8%"><input type="password" class="form-control" name="password2" placeholder="enter password" required/></div><br><br><br>
                 </div>

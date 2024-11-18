@@ -519,10 +519,10 @@ if(isset($_POST['addelderly']))
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Caregiver Name</th>
-                    <th scope="col">Donation</th>
                     <th scope="col">Appointment Date</th>
                     <th scope="col">Appointment Time</th>
                     <th scope="col">Appointment Status</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -544,7 +544,6 @@ if(isset($_POST['addelderly']))
                         <td><?php echo $row['email'];?></td>
                         <td><?php echo $row['contact'];?></td>
                         <td><?php echo $row['doctor'];?></td>
-                        <td><?php echo $row['donationFee'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         <td>

@@ -316,7 +316,7 @@ if(isset($_POST['addelderly']))
                     <th scope="col">Specialization</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
-                    <th scope="col">Fees</th>
+          
                   </tr>
                 </thead>
                 <tbody>
@@ -330,14 +330,13 @@ if(isset($_POST['addelderly']))
                       $spec = $row['spec'];
                       $email = $row['email'];
                       $password = $row['password'];
-                      $donationFee = $row['donationFee'];
                       
                       echo "<tr>
                         <td>$username</td>
                         <td>$spec</td>
                         <td>$email</td>
                         <td>$password</td>
-                        <td>$donationFee</td>
+                   
                       </tr>";
                     }
 

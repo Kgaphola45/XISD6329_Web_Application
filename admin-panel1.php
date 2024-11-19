@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-$con=mysqli_connect("localhost","root","","myhmsdb");
+$con=mysqli_connect("localhost","root","","maindb");
 
 include('newfunc.php');
 
@@ -11,7 +11,7 @@ if(isset($_POST['docsub']))
   $demail=$_POST['demail'];
   $spec=$_POST['special'];
   $donationFee=$_POST['donationFee'];
-  $query="insert into doctb(username,password,email,spec,donationFee)values('$doctor','$dpassword','$demail','$spec','$donationFee')";
+  $query="insert into caregiver(username,password,email,spec,donationFee)values('$doctor','$dpassword','$demail','$spec','$donationFee')";
   $result=mysqli_query($con,$query);
   if($result)
     {
@@ -23,7 +23,7 @@ if(isset($_POST['docsub']))
 if(isset($_POST['docsub1']))
 {
   $demail=$_POST['demail'];
-  $query="delete from doctb where email='$demail';";
+  $query="delete from caregiver where email='$demail';";
   $result=mysqli_query($con,$query);
   if($result)
     {
@@ -68,7 +68,7 @@ if(isset($_POST['addelderly']))
   $remergency_contact = $_POST['remergency_contact'];
   $radditional_notes = $_POST['radditional_notes'];
 
-  $query1 = "INSERT INTO patreg(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$eprimary_doctor_name', '$edoctor_contact', '$especial_needs', '$epassword', '$ecpassword')";
+  $query1 = "INSERT INTO user(fname, lname, dob, gender, address, contact, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_number, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) VALUES('$efname', '$elname', '$edob', '$egender', '$eaddress', '$econtact', '$eemail', '$eemergency_contact_name', '$eemergency_contact_relationship', '$eemergency_contact_number', '$emedical_conditions', '$eallergies', '$ecurrent_medications', '$eprimary_doctor_name', '$edoctor_contact', '$especial_needs', '$epassword', '$ecpassword')";
   $query2 = "INSERT INTO Relative_ToElderly(first_name, last_name, gender, email, physical_address, id_number, relation, contact, emergency_contact, additional_notes) VALUES('$rfname', '$rlname', '$rgender', '$remail', '$rphysical_address', '$rid_number', '$rrelation', '$rcontact', '$remergency_contact', '$radditional_notes')";
 
   $result1 = mysqli_query($con, $query1);
@@ -321,9 +321,9 @@ if(isset($_POST['addelderly']))
                 </thead>
                 <tbody>
                   <?php 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
+                    $con=mysqli_connect("localhost","root","","maindb");
                     global $con;
-                    $query = "select * from doctb";
+                    $query = "select * from caregiver";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
                       $username = $row['username'];
@@ -372,9 +372,9 @@ if(isset($_POST['addelderly']))
         </thead>
         <tbody>
           <?php 
-            $con=mysqli_connect("localhost","root","","myhmsdb");
+            $con=mysqli_connect("localhost","root","","maindb");
             global $con;
-            $query = "SELECT * FROM patreg";
+            $query = "SELECT * FROM user";
             $result = mysqli_query($con,$query);
             while ($row = mysqli_fetch_array($result)){
               echo "<tr>
@@ -456,9 +456,9 @@ if(isset($_POST['addelderly']))
                 </thead>
                 <tbody>
                   <?php 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
+                    $con=mysqli_connect("localhost","root","","maindb");
                     global $con;
-                    $query = "select * from prestb";
+                    $query = "select * from prescriptiontb";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
                       $doctor = $row['doctor'];
@@ -528,7 +528,7 @@ if(isset($_POST['addelderly']))
                 <tbody>
                   <?php 
 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
+                    $con=mysqli_connect("localhost","root","","maindb");
                     global $con;
 
                     $query = "select * from appointmenttb;";
@@ -637,7 +637,7 @@ if(isset($_POST['addelderly']))
                 <tbody>
                   <?php 
 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
+                    $con=mysqli_connect("localhost","root","","maindb");
                     global $con;
 
                     $query = "select * from contact;";

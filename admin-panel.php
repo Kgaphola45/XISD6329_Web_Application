@@ -2,7 +2,7 @@
 <?php 
 include('func.php');  
 include('newfunc.php');
-$con=mysqli_connect("localhost","root","","myhmsdb");
+$con=mysqli_connect("localhost","root","","maindb");
 
 
   $pid = $_SESSION['pid'];
@@ -28,7 +28,7 @@ if(isset($_POST['app-submit']))
   $appdate = $_POST['appdate'];
   $apptime = $_POST['apptime'];
   
-  $query = "INSERT INTO appointmenttb (pid, fname, lname, gender, email, contact, doctor, docFees, appdate, apptime, userStatus, doctorStatus) 
+  $query = "INSERT INTO appointmenttb (pid, fname, lname, gender, email, contact, doctor, donationfees, appdate, apptime, userStatus, doctorStatus) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
   
   $stmt = mysqli_prepare($con, $query);
@@ -57,10 +57,10 @@ if(isset($_GET['cancel']))
 
 
 function generate_bill(){
-  $con=mysqli_connect("localhost","root","","myhmsdb");
+  $con=mysqli_connect("localhost","root","","maindb");
   $pid = $_SESSION['pid'];
   $output='';
-  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
+  $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.donationfees from prescriptiontb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
   while($row = mysqli_fetch_array($query)){
     $output .= '
     <label> Patient ID : </label>'.$row["pid"].'<br/><br/>
@@ -72,7 +72,7 @@ function generate_bill(){
     <label> Disease : </label>'.$row["disease"].'<br/><br/>
     <label> Allergies : </label>'.$row["allergy"].'<br/><br/>
     <label> Prescription : </label>'.$row["prescription"].'<br/><br/>
-    <label> Fees Paid : </label>'.$row["docFees"].'<br/>
+    <label> Fees Paid : </label>'.$row["donationfees"].'<br/>
     
     ';
 
@@ -84,8 +84,8 @@ function generate_bill(){
 
 
 function get_specs(){
-  $con=mysqli_connect("localhost","root","","myhmsdb");
-  $query=mysqli_query($con,"select username,spec from doctb");
+  $con=mysqli_connect("localhost","root","","maindb");
+  $query=mysqli_query($con,"select username,spec from caregiver");
   $docarray = array();
     while($row =mysqli_fetch_assoc($query))
     {
@@ -250,8 +250,8 @@ function get_specs(){
                   
                   <!-- <?php
 
-                        $con=mysqli_connect("localhost","root","","myhmsdb");
-                        $query=mysqli_query($con,"select username,spec from doctb");
+                        $con=mysqli_connect("localhost","root","","maindb");
+                        $query=mysqli_query($con,"select username,spec from caregiver");
                         $docarray = array();
                           while($row =mysqli_fetch_assoc($query))
                           {
@@ -295,7 +295,7 @@ function get_specs(){
                         <script>
               document.getElementById('doctor').onchange = function updateFees(e) {
                 var selection = document.querySelector(`[value=${this.value}]`).getAttribute('data-value');
-                document.getElementById('docFees').value = selection;
+                document.getElementById('donationfees').value = selection;
               };
             </script>
 
@@ -346,10 +346,10 @@ function get_specs(){
                 <tbody>
                   <?php 
 
-                    $con=mysqli_connect("localhost","root","","myhmsdb");
+                    $con=mysqli_connect("localhost","root","","maindb");
                     global $con;
 
-                    $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
+                    $query = "select ID,doctor,donationfees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
               
@@ -357,7 +357,7 @@ function get_specs(){
                   ?>
                       <tr>
                         <td><?php echo $row['doctor'];?></td>
-                        <td><?php echo $row['docFees'];?></td>
+                        <td><?php echo $row['donationfees'];?></td>
                         <td><?php echo $row['appdate'];?></td>
                         <td><?php echo $row['apptime'];?></td>
                         

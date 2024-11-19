@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "root", "", "myhmsdb");
+$con = mysqli_connect("localhost", "root", "", "maindb");
 
 if (isset($_POST['patsub1'])) {
     // Elder data
@@ -34,7 +34,7 @@ if (isset($_POST['patsub1'])) {
 
     if ($password == $cpassword) {
         // Insert elder data
-        $query = "INSERT INTO patreg (fname, lname, dob, gender, address, contact, email, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) 
+        $query = "INSERT INTO user (fname, lname, dob, gender, address, contact, email, medical_conditions, allergies, current_medications, primary_doctor_name, doctor_contact, special_needs, password, cpassword) 
                   VALUES ('$fname', '$lname', '$dob', '$gender', '$address', '$contact', '$email', '$medical_conditions', '$allergies', '$current_medications', '$primary_doctor_name', '$doctor_contact', '$special_needs', '$password', '$cpassword')";
         $result = mysqli_query($con, $query);
 

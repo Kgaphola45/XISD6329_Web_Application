@@ -23,19 +23,19 @@ This project is a web-based management system for Golden Years Old Age Home. It 
 
 1. Install a local server environment like XAMPP or WAMP.
 2. Clone this repository into your web server's root directory.
-3. Import the database schema named `myhmsdb`.
+3. Import the database schema named `maindb`.
 4. Configure the database connection in the PHP files (currently set to localhost, root user, no password).
 5. Access the system through your web browser.
 
 ## Main Components
 
 - `admin-panel1.php`: The main administrative interface
-- `newfunc.php`: Contains additional functions 
+- `newfunc.php`: Contains additional functions
 - Database tables:
-  - `doctb`: Stores caregiver information
-  - `patreg`: Stores elderly resident information
+  - `caregiver`: Stores caregiver information
+  - `user`: Stores elderly resident information
   - `appointmenttb`: Manages appointments
-  - `prestb`: Stores prescription information
+  - `prescriptiontb`: Stores prescription information
   - `Relative_ToElderly`: Stores information about relatives of elderly residents
 
 ## Usage

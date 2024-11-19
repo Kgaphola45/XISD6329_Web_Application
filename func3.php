@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","myhmsdb");
+$con=mysqli_connect("localhost","root","","maindb");
 if(isset($_POST['adsub'])){
 	$username=$_POST['username1'];
 	$password=$_POST['password2'];
@@ -32,7 +32,7 @@ if(isset($_POST['update_data']))
 function display_docs()
 {
 	global $con;
-	$query="select * from doctb";
+	$query="select * from caregiver";
 	$result=mysqli_query($con,$query);
 	while($row=mysqli_fetch_array($result))
 	{
@@ -45,7 +45,7 @@ function display_docs()
 if(isset($_POST['doc_sub']))
 {
 	$name=$_POST['name'];
-	$query="insert into doctb(name)values('$name')";
+	$query="insert into caregiver(name)values('$name')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:adddoc.php");

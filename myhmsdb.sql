@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `myhmsdb`
+-- Database: `maindb`
 --
 
 -- --------------------------------------------------------
@@ -50,7 +50,7 @@ CREATE TABLE `appointmenttb` (
   `email` varchar(30) NOT NULL,
   `contact` varchar(10) NOT NULL,
   `doctor` varchar(30) NOT NULL,
-  `docFees` int(5) NOT NULL,
+  `donationfees` int(5) NOT NULL,
   `appdate` date NOT NULL,
   `apptime` time NOT NULL,
   `userStatus` int(5) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `appointmenttb` (
 -- Dumping data for table `appointmenttb`
 --
 
-INSERT INTO `appointmenttb` (`pid`, `ID`, `fname`, `lname`, `gender`, `email`, `contact`, `doctor`, `docFees`, `appdate`, `apptime`, `userStatus`, `doctorStatus`)
+INSERT INTO `appointmenttb` (`pid`, `ID`, `fname`, `lname`, `gender`, `email`, `contact`, `doctor`, `donationfees`, `appdate`, `apptime`, `userStatus`, `doctorStatus`)
 VALUES
 (1, 1001, 'Thabo', 'Molefe', 'Male', 'thabo.molefe@gmail.com', '0723456789', 'Dr. Mkhize', 500, '2024-09-10', '09:30:00', 1, 1),
 (2, 1002, 'Sibongile', 'Nkosi', 'Female', 'sibongile.nkosi@gmail.com', '0734567890', 'Dr. Khumalo', 550, '2024-09-12', '11:00:00', 1, 0),
@@ -93,22 +93,22 @@ VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctb`
+-- Table structure for table `caregiver`
 --
 
-CREATE TABLE `doctb` (
+CREATE TABLE `caregiver` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `spec` varchar(50) NOT NULL,
-  `docFees` int(10) NOT NULL
+  `donationfees` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `doctb`
+-- Dumping data for table `caregiver`
 --
 
-INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
+INSERT INTO `caregiver` (`username`, `password`, `email`, `spec`, `donationfees`) VALUES
 ('ThandoM', 'pass123', 'thando.m@goldenyears.com', 'Elderly Care Specialist', 500),
 ('NomsaD', 'securePass!', 'nomsa.d@goldenyears.com', 'Geriatric Nurse', 450),
 ('SiyandaK', 'Siyanda456!', 'siyanda.k@goldenyears.com', 'Alzheimer’s Specialist', 600),
@@ -126,7 +126,7 @@ INSERT INTO `doctb` (`username`, `password`, `email`, `spec`, `docFees`) VALUES
 --
 -- Table  for table `Elderly`
 --
-CREATE TABLE `patreg` (
+CREATE TABLE `user` (
   `pid` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE `patreg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `patreg` (
+INSERT INTO `user` (
   `fname`, `lname`, `dob`, `gender`, `address`, `contact`, `email`, 
   `emergency_contact_name`, `emergency_contact_relationship`, `emergency_contact_number`, 
   `medical_conditions`, `allergies`, `current_medications`, `primary_doctor_name`, `doctor_contact`, 
@@ -187,10 +187,10 @@ VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestb`
+-- Table structure for table `prescriptiontb`
 --
 
-CREATE TABLE `prestb` (
+CREATE TABLE `prescriptiontb` (
   `doctor` varchar(50) NOT NULL,
   `pid` int(11) NOT NULL,
   `ID` int(11) NOT NULL,
@@ -204,10 +204,10 @@ CREATE TABLE `prestb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `prestb`
+-- Dumping data for table `prescriptiontb`
 --
 
-INSERT INTO `prestb` (`doctor`, `pid`, `ID`, `fname`, `lname`, `appdate`, `apptime`, `disease`, `allergy`, `prescription`) VALUES
+INSERT INTO `prescriptiontb` (`doctor`, `pid`, `ID`, `fname`, `lname`, `appdate`, `apptime`, `disease`, `allergy`, `prescription`) VALUES
 ('Lebo ', 4, 11, 'Kishan', 'Sekgobela', '2020-03-27', '15:00:00', 'Cough', 'Nothing', 'Just take a teaspoon of Benadryl every night'),
 ('Jacob ', 2, 8, 'Alia', 'Mkhize', '2020-03-21', '10:00:00', 'Severe Fever', 'Nothing', 'Take bed rest'),
 ('Amos ', 9, 12, 'Makai', 'Makai', '2020-03-26', '12:00:00', 'Sever fever', 'nothing', 'Paracetamol -> 1 every morning and night'),
